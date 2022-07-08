@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class CursoDesktop
+    partial class Cursos
     {
         /// <summary>
         /// Required designer variable.
