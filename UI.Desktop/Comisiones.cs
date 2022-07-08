@@ -12,21 +12,22 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Materias : ApplicationForm
+    public partial class Comisiones : ApplicationForm
     {
-        public Materias()
+        public Comisiones()
         {
             InitializeComponent();
-            this.dgvMaterias.AutoGenerateColumns = false;
+            this.Load += new System.EventHandler(this.Comisiones_Load);
+            this.dgvComisiones.AutoGenerateColumns = false;
         }
 
         public void Listar()
         {
-            MateriaLogic ml = new MateriaLogic();
-            this.dgvMaterias.DataSource = ml.GetAll();
+            ComisionLogic cl = new ComisionLogic();
+            this.dgvComisiones.DataSource = cl.GetAll();
         }
 
-        private void Materias_Load(object sender, EventArgs e)
+        private void Comisiones_Load(object sender, EventArgs e)
         {
             Listar();
         }
@@ -43,18 +44,18 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            MateriaDesktop md = new MateriaDesktop(ApplicationForm.ModoForm.Alta);
-            md.ShowDialog();
+            ComisionDesktop cd = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
+            cd.ShowDialog();
             Listar();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if (this.dgvMaterias.SelectedRows.Count > 0)
+            if (this.dgvComisiones.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
-                MateriaDesktop md = new MateriaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                md.ShowDialog();
+                int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                ComisionDesktop cd = new ComisionDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                cd.ShowDialog();
                 Listar();
             }
             else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -62,14 +63,14 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvMaterias.SelectedRows.Count > 0)
+            if (this.dgvComisiones.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Materia)this.dgvMaterias.SelectedRows[0].DataBoundItem).ID;
-                MateriaDesktop md = new MateriaDesktop(ID, ApplicationForm.ModoForm.Baja);
-                md.ShowDialog();
+                int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
+                ComisionDesktop cd = new ComisionDesktop(ID, ApplicationForm.ModoForm.Baja);
+                cd.ShowDialog();
                 Listar();
             }
             else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-}
+ }

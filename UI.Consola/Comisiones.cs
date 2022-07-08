@@ -6,19 +6,19 @@ using Business.Logic;
 
 namespace UI.Consola
 {
-    public class Materias
+    class Comisiones
     {
-        public Materias()
+        public Comisiones()
         {
-            this.MateriaNegocio = new MateriaLogic();
+            this.ComisionNegocio = new ComisionLogic();
         }
 
 
-        protected MateriaLogic _MateriaNegocio;
-        public MateriaLogic MateriaNegocio
+        protected ComisionLogic _ComisionNegocio;
+        public ComisionLogic ComisionNegocio
         {
-            get { return _MateriaNegocio; }
-            set { _MateriaNegocio = value; }
+            get { return _ComisionNegocio; }
+            set { _ComisionNegocio = value; }
         }
 
 
@@ -54,18 +54,17 @@ namespace UI.Consola
         public void ListadoGeneral()
         {
             Console.Clear();
-            foreach (Materia mate in  MateriaNegocio.GetAll())
+            foreach (Comision com in ComisionNegocio.GetAll())
             {
-                MostrarDatos(mate);
+                MostrarDatos(com);
             }
         }
 
-        public void MostrarDatos(Materia mate)
+        public void MostrarDatos(Comision com)
         {
-            Console.WriteLine("Materia: {0}", mate.ID);
-            Console.WriteLine("\t\tDescripcion: {0}", mate.Desc_materia);
-            Console.WriteLine("\t\tHoras semanales: {0}", mate.Hs_semanales);
-            Console.WriteLine("\t\tHoras totales: {0}", mate.Hs_totales);
+            Console.WriteLine("Comision: {0}", com.ID);
+            Console.WriteLine("\t\tDescripcion: {0}", com.Desc_comision);
+            Console.WriteLine("\t\tAño especialidad: {0}", com.Anio_especialidad);
             Console.WriteLine();
         }
 
@@ -74,9 +73,9 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Console.Write("Ingrese el ID del usuario a consultar: ");
+                Console.Write("Ingrese el ID de la comision a consultar: ");
                 int id = int.Parse(Console.ReadLine());
-                this.MostrarDatos(MateriaNegocio.GetOne(id));
+                this.MostrarDatos(ComisionNegocio.GetOne(id));
             }
             catch (FormatException fe)
             {
@@ -99,17 +98,15 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Console.Write("Ingrese el ID de la materia a modificar: ");
+                Console.Write("Ingrese el ID de la comision a modificar: ");
                 int id = int.Parse(Console.ReadLine());
-                Materia mate = MateriaNegocio.GetOne(id);
+                Comision com = ComisionNegocio.GetOne(id);
                 Console.Write("Ingrese descripcion: ");
-                mate.Desc_materia = Console.ReadLine();
-                Console.Write("Ingrese horas semanales: ");
-                mate.Hs_semanales = Console.ReadLine();
-                Console.Write("Ingrese horas totales: ");
-                mate.Hs_totales = Console.ReadLine();
-                mate.State = BusinessEntity.States.Modified;
-                MateriaNegocio.Save(mate);
+                com.Desc_comision = Console.ReadLine();
+                Console.Write("Ingrese año especialidad: ");
+                com.Anio_especialidad = Console.ReadLine();
+                com.State = BusinessEntity.States.Modified;
+                ComisionNegocio.Save(com);
             }
             catch (FormatException fe)
             {
@@ -129,19 +126,17 @@ namespace UI.Consola
 
         public void Agregar()
         {
-            Materia mate = new Materia();
+            Comision com = new Comision();
 
             Console.Clear();
             Console.Write("Ingrese descripcion: ");
-            mate.Desc_materia = Console.ReadLine();
-            Console.Write("Ingrese horas semanales: ");
-            mate.Hs_semanales = Console.ReadLine();
-            Console.Write("Ingrese horas totales: ");
-            mate.Hs_totales = Console.ReadLine();
-            mate.State = BusinessEntity.States.New;
-            MateriaNegocio.Save(mate);
+            com.Desc_comision = Console.ReadLine();
+            Console.Write("Ingrese año especialidad: ");
+            com.Anio_especialidad = Console.ReadLine();
+            com.State = BusinessEntity.States.New;
+            ComisionNegocio.Save(com);
             Console.WriteLine();
-            Console.WriteLine("ID: {0}", mate.ID);
+            Console.WriteLine("ID: {0}", com.ID);
         }
 
         public void Eliminar()
@@ -149,9 +144,9 @@ namespace UI.Consola
             try
             {
                 Console.Clear();
-                Console.WriteLine("Ingrese el ID de la materia a eliminar: ");
+                Console.WriteLine("Ingrese el ID de la comision a eliminar: ");
                 int id = int.Parse(Console.ReadLine());
-                MateriaNegocio.Delete(id);
+                ComisionNegocio.Delete(id);
             }
             catch (FormatException fe)
             {

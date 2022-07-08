@@ -12,31 +12,30 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class MateriaDesktop : ApplicationForm
+    public partial class ComisionDesktop : ApplicationForm
     {
-        protected Materia _MateriaActual;
-        public Materia MateriaActual
+        protected Comision _ComisionActual;
+        public Comision ComisionActual
         {
-            get { return _MateriaActual; }
-            set { _MateriaActual = value; }
+            get { return _ComisionActual; }
+            set { _ComisionActual = value; }
         }
-
-        public MateriaDesktop()
+        public ComisionDesktop()
         {
             InitializeComponent();
         }
 
-        public MateriaDesktop(ModoForm modo) : this()
+        public ComisionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
             MapearDeDatos();
         }
 
-        public MateriaDesktop(int ID, ModoForm modo) : this()
+        public ComisionDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            MateriaLogic ml = new MateriaLogic();
-            MateriaActual = ml.GetOne(ID);
+            ComisionLogic cl = new ComisionLogic();
+            ComisionActual = cl.GetOne(ID);
             MapearDeDatos();
         }
 
@@ -44,16 +43,15 @@ namespace UI.Desktop
         {
             if (this.Modo == ModoForm.Alta)
             {
-                MateriaLogic ml = new MateriaLogic();
-                this.txtID.Text = (ml.NextId() + 1).ToString();
+                ComisionLogic cl = new ComisionLogic();
+                this.txtID.Text = (cl.NextId() + 1).ToString();
             }
 
             else
             {
-                this.txtID.Text = this.MateriaActual.ID.ToString();
-                this.txtDescripcion.Text = this.MateriaActual.Desc_materia;
-                this.txtHsSemanales.Text = this.MateriaActual.Hs_semanales;
-                this.txtHsTotales.Text = this.MateriaActual.Hs_totales;
+                this.txtID.Text = this.ComisionActual.ID.ToString();
+                this.txtDescripcion.Text = this.ComisionActual.Desc_comision;
+                this.txtAnioEspecialidad.Text = this.ComisionActual.Anio_especialidad;
             }
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) this.btnAceptar.Text = "Guardar";
@@ -67,25 +65,24 @@ namespace UI.Desktop
             {
                 if (this.Modo == ModoForm.Alta)
                 {
-                    Materia mate = new Materia();
-                    MateriaActual = mate;
-                    this.MateriaActual.State = BusinessEntity.States.New;
+                    Comision com = new Comision();
+                    ComisionActual = com;
+                    this.ComisionActual.State = BusinessEntity.States.New;
                 }
-                else this.MateriaActual.State = BusinessEntity.States.Modified;
+                else this.ComisionActual.State = BusinessEntity.States.Modified;
 
-                this.MateriaActual.Desc_materia = this.txtDescripcion.Text;
-                this.MateriaActual.Hs_semanales = this.txtHsSemanales.Text;
-                this.MateriaActual.Hs_totales = this.txtHsTotales.Text;
+                this.ComisionActual.Desc_comision = this.txtDescripcion.Text;
+                this.ComisionActual.Anio_especialidad = this.txtAnioEspecialidad.Text;
             }
-            else if (this.Modo == ModoForm.Baja) this.MateriaActual.State = BusinessEntity.States.Deleted;
-            else this.MateriaActual.State = BusinessEntity.States.Unmodified;
+            else if (this.Modo == ModoForm.Baja) this.ComisionActual.State = BusinessEntity.States.Deleted;
+            else this.ComisionActual.State = BusinessEntity.States.Unmodified;
         }
 
         public override void GuardarCambios()
         {
             MapearADatos();
-            MateriaLogic ml = new MateriaLogic();
-            ml.Save(this.MateriaActual);
+            ComisionLogic com = new ComisionLogic();
+            com.Save(this.ComisionActual);
         }
 
         public override bool Validar()
@@ -93,8 +90,7 @@ namespace UI.Desktop
             if (
                 (this.txtID.Text == "") ||
                 (this.txtDescripcion.Text == "") ||
-                (this.txtHsSemanales.Text == "") ||
-                (this.txtHsTotales.Text == "")
+                (this.txtAnioEspecialidad.Text == "")
                 )
             {
                 this.Notificar("Atención", "Datos incorrectos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
