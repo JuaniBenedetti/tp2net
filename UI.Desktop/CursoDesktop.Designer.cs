@@ -30,14 +30,16 @@ namespace UI.Desktop
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.Label();
+            this.IDlabel = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.Label();
             this.txtAño_calendario = new System.Windows.Forms.Label();
             this.txtCupo = new System.Windows.Forms.Label();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,14 +50,16 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtID, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.IDlabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtAño_calendario, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtCupo, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -67,12 +71,13 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Size = new System.Drawing.Size(592, 204);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtID.Location = new System.Drawing.Point(121, 3);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(221, 20);
+            this.txtID.TabIndex = 0;
             // 
             // textBox2
             // 
@@ -95,14 +100,15 @@ namespace UI.Desktop
             this.textBox4.Size = new System.Drawing.Size(221, 20);
             this.textBox4.TabIndex = 3;
             // 
-            // txtID
+            // IDlabel
             // 
-            this.txtID.AutoSize = true;
-            this.txtID.Location = new System.Drawing.Point(3, 0);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(18, 13);
-            this.txtID.TabIndex = 4;
-            this.txtID.Text = "ID";
+            this.IDlabel.AutoSize = true;
+            this.IDlabel.Location = new System.Drawing.Point(3, 0);
+            this.IDlabel.Name = "IDlabel";
+            this.IDlabel.Size = new System.Drawing.Size(18, 13);
+            this.IDlabel.TabIndex = 4;
+            this.IDlabel.Text = "ID";
+            this.IDlabel.Click += new System.EventHandler(this.txtID_Click);
             // 
             // txtDescripcion
             // 
@@ -131,6 +137,25 @@ namespace UI.Desktop
             this.txtCupo.TabIndex = 7;
             this.txtCupo.Text = "Cupo";
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(357, 156);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 8;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(475, 156);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // CursoDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,13 +174,15 @@ namespace UI.Desktop
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label txtID;
+        private System.Windows.Forms.Label IDlabel;
         private System.Windows.Forms.Label txtDescripcion;
         private System.Windows.Forms.Label txtAño_calendario;
         private System.Windows.Forms.Label txtCupo;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

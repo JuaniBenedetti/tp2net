@@ -48,5 +48,36 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            CursoDesktop md = new CursoDesktop(ApplicationForm.ModoForm.Alta);
+            md.ShowDialog();
+            Listar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvCursos.SelectedRows.Count > 0)
+            {
+                int ID = ((Business.Entities.Materia)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                CursoDesktop md = new CursoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                md.ShowDialog();
+                Listar();
+            }
+            else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvCursos.SelectedRows.Count > 0)
+            {
+                int ID = ((Business.Entities.Materia)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                CursoDesktop md = new CursoDesktop(ID, ApplicationForm.ModoForm.Baja);
+                md.ShowDialog();
+                Listar();
+            }
+            else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
