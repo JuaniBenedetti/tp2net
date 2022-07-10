@@ -49,9 +49,9 @@ namespace UI.Desktop
             else
             {
                 this.txtID.Text = this.CursoActual.ID.ToString();
-                this.txtDescripcion.Text = this.CursoActual.Desc_curso;
-                this.txtAño_calendario.Text = this.CursoActual.Año_calendario;
-                this.txtCupo.Text = this.CursoActual.Cupo;
+              
+                this.txtAño_calendario.Text = this.CursoActual.Año_calendario.ToString();
+                this.txtCupo.Text = this.CursoActual.Cupo.ToString();
             }
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) this.btnAceptar.Text = "Guardar";
@@ -71,9 +71,9 @@ namespace UI.Desktop
                 }
                 else this.CursoActual.State = BusinessEntity.States.Modified;
 
-                this.CursoActual.Desc_curso = this.txtDescripcion.Text;
-                this.CursoActual.Año_calendario = this.txtAño_calendario.Text;
-                this.CursoActual.Cupo = this.txtCupo.Text;
+              
+                this.CursoActual.Año_calendario = Int32.Parse(this.txtAño_calendario.Text);
+                this.CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
             }
             else if (this.Modo == ModoForm.Baja) this.CursoActual.State = BusinessEntity.States.Deleted;
             else this.CursoActual.State = BusinessEntity.States.Unmodified;
@@ -100,7 +100,7 @@ namespace UI.Desktop
         {
             if (
                 (this.txtID.Text == "") ||
-                (this.txtDescripcion.Text == "") ||
+                
                 (this.txtAño_calendario.Text == "") ||
                 (this.txtCupo.Text == "")
                 )
@@ -122,6 +122,11 @@ namespace UI.Desktop
         }
 
         private void txtID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Business.Entities;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace Data.Database
 {
@@ -22,12 +24,11 @@ namespace Data.Database
                     crs = new Business.Entities.Curso();
                     crs.ID = 1;
                     crs.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    crs.Desc_curso = "Javascript";
-                    crs.Año_calendario = "Html";
-                    crs.Cupo = "Css";
+                    crs.Año_calendario = 2022;
+                    crs.Cupo = 1;
 
                     _Cursos.Add(crs);
-
+                
                 }
                 return _Cursos;
             }
@@ -36,12 +37,64 @@ namespace Data.Database
 
         public List<Curso> GetAll()
         {
-            return new List<Curso>(Cursos);
+            List<Curso> cursos = new List<Curso>();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM cursos", SqlConn);
+                SqlDataReader drCursos = cmdCurso.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso cur = new Curso();
+
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.Año_calendario = (int)drCursos["anio_calendario"];
+                    cur.Cupo = (int)drCursos["cupo"];
+
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+
+            return cursos;
         }
 
         public Business.Entities.Curso GetOne(int ID)
         {
-            return Cursos.Find(delegate (Curso cur) { return cur.ID == ID; });
+           Curso cursos = new Curso();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM cursos WHERE id_curso=@id", SqlConn);
+                cmdCurso.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drCursos = cmdCurso.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso cur = new Curso();
+
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.Año_calendario = (int)drCursos["anio_calendario"];
+                    cur.Cupo = (int)drCursos["cupo"];
+                }
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+
+            return cursos;
         }
 
         public void Delete(int ID)

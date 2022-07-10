@@ -33,15 +33,14 @@ namespace UI.Desktop
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Año_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsCursos = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.Año_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -89,7 +88,6 @@ namespace UI.Desktop
             // 
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Descripcion,
             this.Año_calendario,
             this.Cupo});
             this.tlCursos.SetColumnSpan(this.dgvCursos, 2);
@@ -99,24 +97,6 @@ namespace UI.Desktop
             this.dgvCursos.Size = new System.Drawing.Size(794, 389);
             this.dgvCursos.TabIndex = 0;
             this.dgvCursos.Click += new System.EventHandler(this.dgvCursos_Click);
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Desc_curso";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // Año_calendario
-            // 
-            this.Año_calendario.DataPropertyName = "Año_calendario";
-            this.Año_calendario.HeaderText = "Año de Calendario";
-            this.Año_calendario.Name = "Año_calendario";
-            // 
-            // Cupo
-            // 
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.Name = "Cupo";
             // 
             // btnActualizar
             // 
@@ -148,7 +128,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsCursos.Location = new System.Drawing.Point(3, 0);
             this.tsCursos.Name = "tsCursos";
-            this.tsCursos.Size = new System.Drawing.Size(112, 25);
+            this.tsCursos.Size = new System.Drawing.Size(81, 25);
             this.tsCursos.TabIndex = 0;
             // 
             // tsbNuevo
@@ -183,6 +163,18 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // Año_calendario
+            // 
+            this.Año_calendario.DataPropertyName = "Año_calendario";
+            this.Año_calendario.HeaderText = "Año de Calendario";
+            this.Año_calendario.Name = "Año_calendario";
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.Name = "Cupo";
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,11 +205,10 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip tsCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Año_calendario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Año_calendario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
     }
 }
