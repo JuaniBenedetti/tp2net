@@ -15,11 +15,17 @@ namespace Business.Entities
             set { _Desc_comision = value; }
         }
 
-        private string _Anio_especialidad;
-        public string Anio_especialidad
+        private int _Anio_especialidad;
+        public int Anio_especialidad
         {
             get { return _Anio_especialidad; }
             set { _Anio_especialidad = value; }
+        }
+        private int _Id_Plan;
+        public int Id_Plan
+        {
+            get { return _Id_Plan; }
+            set { _Id_Plan = value; }
         }
     }
 }

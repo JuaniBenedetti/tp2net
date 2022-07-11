@@ -41,9 +41,9 @@ namespace UI.Desktop
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(153, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 13);
+            this.label1.Size = new System.Drawing.Size(191, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Buen dia, elija la opcion que desee!";
+            this.label1.Text = "Bienvenidos, elija la opcion que desee!";
             // 
             // btnMenuUsuarios
             // 

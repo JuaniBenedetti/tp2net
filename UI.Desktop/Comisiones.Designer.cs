@@ -40,6 +40,7 @@ namespace UI.Desktop
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.anio_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcComisiones.ContentPanel.SuspendLayout();
@@ -98,6 +99,7 @@ namespace UI.Desktop
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
+            this.Id_Plan,
             this.Descripcion,
             this.anio_especialidad});
             this.tlComisiones.SetColumnSpan(this.dgvComisiones, 2);
@@ -180,6 +182,13 @@ namespace UI.Desktop
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             // 
+            // Id_Plan
+            // 
+            this.Id_Plan.DataPropertyName = "Id_Plan";
+            this.Id_Plan.HeaderText = "Id_Plan";
+            this.Id_Plan.Name = "Id_Plan";
+            this.Id_Plan.ReadOnly = true;
+            // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "Desc_comision";
@@ -227,8 +236,8 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Plan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn anio_especialidad;
-
-        }
+    }
 }
