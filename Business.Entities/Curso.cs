@@ -22,5 +22,17 @@ namespace Business.Entities
             get { return _Cupo; }
             set { _Cupo = value; }
         }
+        private int _ID_materia;
+        public int Id_materia
+        {
+            get { return _ID_materia; }
+            set { _ID_materia = value; }
+        }
+        private int _ID_comision;
+        public int Id_comision
+        {
+            get { return _ID_comision; }
+            set { _ID_comision = value; }
+        }
     }
 }

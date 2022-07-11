@@ -52,6 +52,9 @@ namespace Data.Database
                     cur.ID = (int)drCursos["id_curso"];
                     cur.Año_calendario = (int)drCursos["anio_calendario"];
                     cur.Cupo = (int)drCursos["cupo"];
+                    cur.Id_comision = (int)drCursos["id_comision"];
+                    cur.Id_materia = (int)drCursos["id_materia"];
+
 
                     cursos.Add(cur);
                 }
@@ -69,7 +72,7 @@ namespace Data.Database
 
         public Business.Entities.Curso GetOne(int ID)
         {
-           Curso cursos = new Curso();
+            Curso cur = new Curso();
 
             try
             {
@@ -80,12 +83,16 @@ namespace Data.Database
 
                 while (drCursos.Read())
                 {
-                    Curso cur = new Curso();
+                    
 
                     cur.ID = (int)drCursos["id_curso"];
                     cur.Año_calendario = (int)drCursos["anio_calendario"];
                     cur.Cupo = (int)drCursos["cupo"];
+                    cur.Id_comision = (int)drCursos["id_comision"];
+                    cur.Id_materia = (int)drCursos["id_materia"];
+
                 }
+                drCursos.Close();
             }
             catch (Exception Ex)
             {
@@ -94,13 +101,91 @@ namespace Data.Database
             }
             finally { this.CloseConnection(); }
 
-            return cursos;
+            return cur;
         }
 
         public void Delete(int ID)
         {
-            Cursos.Remove(this.GetOne(ID));
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdDelete = new SqlCommand("DELETE cursos WHERE id_curso=@id", SqlConn);
+                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al eliminar curso", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            //Cursos.Remove(this.GetOne(ID));
         }
+        public void Update(Curso curso)
+        {
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdSave = new SqlCommand(
+                    "UPDATE cursos SET anio_calendario=@anio_calendario, cupo=@cupo, id_Materia=@id_materia, id_comision=@id_comision " +
+                    "WHERE id_curso=@id", SqlConn);
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.ID;
+                cmdSave.Parameters.Add("@anio_calendario", SqlDbType.VarChar, 50).Value = curso.Año_calendario;
+                cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
+                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.Id_materia;
+                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.Id_comision;
+
+
+                cmdSave.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al modificar datos del usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public void Insert(Curso curso)
+        {
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdSave = new SqlCommand(
+                    "INSERT INTO cursos( anio_calendario, cupo, id_materia, id_comision) " +
+                    "values( @anio_calendario, @cupo, @id_materia, @id_comision) " +
+                    "SELECT @@identity", SqlConn);
+                cmdSave.Parameters.Add("@anio_calendario", SqlDbType.VarChar, 50).Value = curso.Año_calendario;
+                cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
+                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.Id_materia;
+                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.Id_comision;
+
+                curso.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+           
+
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+
 
         public int NextId()
         {
@@ -115,23 +200,25 @@ namespace Data.Database
             return NextID;
         }
 
-        public void Save(Curso Curso)
+        public void Save(Curso curso)
         {
-            if (Curso.State == BusinessEntity.States.New)
+            if (curso.State == BusinessEntity.States.New)
             {
 
-                Curso.ID = NextId() + 1;
-                Cursos.Add(Curso);
+                //Curso.ID = NextId() + 1;
+                //Cursos.Add(Curso);
+                this.Insert(curso);
             }
-            else if (Curso.State == BusinessEntity.States.Deleted)
+            else if (curso.State == BusinessEntity.States.Deleted)
             {
-                this.Delete(Curso.ID);
+                this.Delete(curso.ID);
             }
-            else if (Curso.State == BusinessEntity.States.Modified)
+            else if (curso.State == BusinessEntity.States.Modified)
             {
-                Cursos[Cursos.FindIndex(delegate (Curso cur) { return cur.ID == Curso.ID; })] = Curso;
+                //Cursos[Cursos.FindIndex(delegate (Curso cur) { return cur.ID == curso.ID; })] = curso;
+                this.Update(curso);
             }
-            Curso.State = BusinessEntity.States.Unmodified;
+            curso.State = BusinessEntity.States.Unmodified;
         }
     }
 }

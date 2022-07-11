@@ -52,6 +52,9 @@ namespace UI.Desktop
               
                 this.txtAño_calendario.Text = this.CursoActual.Año_calendario.ToString();
                 this.txtCupo.Text = this.CursoActual.Cupo.ToString();
+                this.txtID_Materia.Text = this.CursoActual.Id_materia.ToString();
+                this.txtID_Comision.Text = this.CursoActual.Id_comision.ToString();
+
             }
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) this.btnAceptar.Text = "Guardar";
@@ -72,8 +75,11 @@ namespace UI.Desktop
                 else this.CursoActual.State = BusinessEntity.States.Modified;
 
               
-                this.CursoActual.Año_calendario = Int32.Parse(this.txtAño_calendario.Text);
-                this.CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
+               this.CursoActual.Año_calendario = Int32.Parse(this.txtAño_calendario.Text); //Int32.Parse(this.txtAño_calendario.Text);
+               this.CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
+                this.CursoActual.Id_materia = Int32.Parse(this.txtID_Materia.Text);
+                this.CursoActual.Id_comision = Int32.Parse(this.txtID_Comision.Text);
+
             }
             else if (this.Modo == ModoForm.Baja) this.CursoActual.State = BusinessEntity.States.Deleted;
             else this.CursoActual.State = BusinessEntity.States.Unmodified;
@@ -100,9 +106,10 @@ namespace UI.Desktop
         {
             if (
                 (this.txtID.Text == "") ||
-                
-                (this.txtAño_calendario.Text == "") ||
-                (this.txtCupo.Text == "")
+                (this.txtID_Comision.Text == "")||
+                (this.txtID_Materia.Text == "")||
+                (this.año.Text == "") ||
+                (this.cupolabel.Text == "")
                 )
             {
                 this.Notificar("Atención", "Datos incorrectos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -128,6 +135,12 @@ namespace UI.Desktop
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            Close();
 
         }
     }

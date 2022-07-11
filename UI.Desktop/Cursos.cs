@@ -60,7 +60,7 @@ namespace UI.Desktop
         {
             if (this.dgvCursos.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Materia)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
                 CursoDesktop md = new CursoDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 md.ShowDialog();
                 Listar();
@@ -72,7 +72,7 @@ namespace UI.Desktop
         {
             if (this.dgvCursos.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Materia)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
                 CursoDesktop md = new CursoDesktop(ID, ApplicationForm.ModoForm.Baja);
                 md.ShowDialog();
                 Listar();
