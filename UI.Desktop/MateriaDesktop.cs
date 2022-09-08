@@ -52,8 +52,10 @@ namespace UI.Desktop
             {
                 this.txtID.Text = this.MateriaActual.ID.ToString();
                 this.txtDescripcion.Text = this.MateriaActual.Desc_materia;
-                this.txtHsSemanales.Text = this.MateriaActual.Hs_semanales;
-                this.txtHsTotales.Text = this.MateriaActual.Hs_totales;
+                this.txtHsSemanales.Text = this.MateriaActual.Hs_semanales.ToString();
+                this.txtHsTotales.Text = this.MateriaActual.Hs_totales.ToString();
+                this.txtId_Plan.Text = this.MateriaActual.Id_Plan.ToString();
+
             }
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) this.btnAceptar.Text = "Guardar";
@@ -74,8 +76,9 @@ namespace UI.Desktop
                 else this.MateriaActual.State = BusinessEntity.States.Modified;
 
                 this.MateriaActual.Desc_materia = this.txtDescripcion.Text;
-                this.MateriaActual.Hs_semanales = this.txtHsSemanales.Text;
-                this.MateriaActual.Hs_totales = this.txtHsTotales.Text;
+                this.MateriaActual.Hs_semanales = Int32.Parse(this.txtHsSemanales.Text);
+                this.MateriaActual.Hs_totales = Int32.Parse(this.txtHsTotales.Text);
+                this.MateriaActual.Id_Plan = Int32.Parse(this.txtId_Plan.Text);
             }
             else if (this.Modo == ModoForm.Baja) this.MateriaActual.State = BusinessEntity.States.Deleted;
             else this.MateriaActual.State = BusinessEntity.States.Unmodified;
@@ -112,6 +115,11 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

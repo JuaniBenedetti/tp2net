@@ -10,8 +10,8 @@ namespace Data.Database
     public class UsuarioAdapter : Adapter
     {
         #region DatosEnMemoria
-        // Esta regiÛn solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta ser· eliminada
+        // Esta regi√≥n solo se usa en esta etapa donde los datos se mantienen en memoria.
+        // Al modificar este proyecto para que acceda a la base de datos esta ser√° eliminada
         private static List<Usuario> _Usuarios;
 
         private static List<Usuario> Usuarios
@@ -218,7 +218,7 @@ namespace Data.Database
             }
         }
 
-        public int NextId() 
+        public int NextId()
         {
             int NextID = 0;
             foreach (Usuario usr in Usuarios)
@@ -249,7 +249,7 @@ namespace Data.Database
                 //Usuarios[Usuarios.FindIndex(delegate(Usuario u) { return u.ID == usuario.ID; })]=usuario;
                 this.Update(usuario);
             }
-            usuario.State = BusinessEntity.States.Unmodified;            
+            usuario.State = BusinessEntity.States.Unmodified;
         }
     }
 }

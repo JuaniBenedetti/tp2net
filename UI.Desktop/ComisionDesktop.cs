@@ -51,7 +51,8 @@ namespace UI.Desktop
             {
                 this.txtID.Text = this.ComisionActual.ID.ToString();
                 this.txtDescripcion.Text = this.ComisionActual.Desc_comision;
-                this.txtAnioEspecialidad.Text = this.ComisionActual.Anio_especialidad;
+                this.txtAnioEspecialidad.Text = this.ComisionActual.Anio_especialidad.ToString();
+                this.txtId_Plan.Text = this.ComisionActual.Id_Plan.ToString();
             }
 
             if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion) this.btnAceptar.Text = "Guardar";
@@ -72,7 +73,8 @@ namespace UI.Desktop
                 else this.ComisionActual.State = BusinessEntity.States.Modified;
 
                 this.ComisionActual.Desc_comision = this.txtDescripcion.Text;
-                this.ComisionActual.Anio_especialidad = this.txtAnioEspecialidad.Text;
+                this.ComisionActual.Anio_especialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
+                this.ComisionActual.Id_Plan = Int32.Parse(this.txtId_Plan.Text);
             }
             else if (this.Modo == ModoForm.Baja) this.ComisionActual.State = BusinessEntity.States.Deleted;
             else this.ComisionActual.State = BusinessEntity.States.Unmodified;
@@ -90,7 +92,8 @@ namespace UI.Desktop
             if (
                 (this.txtID.Text == "") ||
                 (this.txtDescripcion.Text == "") ||
-                (this.txtAnioEspecialidad.Text == "")
+                (this.txtAnioEspecialidad.Text == "") ||
+                (this.asd.Text == "") 
                 )
             {
                 this.Notificar("Atención", "Datos incorrectos.", MessageBoxButtons.OK, MessageBoxIcon.Error);

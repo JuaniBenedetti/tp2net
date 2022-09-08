@@ -48,6 +48,13 @@ namespace UI.Desktop
             {
                 UsuarioLogic ul = new UsuarioLogic();
                 this.txtID.Text = (ul.NextId()+1).ToString();
+            } else if(this.Modo == ModoForm.Consulta)
+            {
+           
+                Usuarios us = new Usuarios();
+                // us.dgvUsuarios.DataSource = ul.GetAll();
+                us.Listar();
+
             }
 
             else
