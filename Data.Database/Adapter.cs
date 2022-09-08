@@ -4,7 +4,6 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Configuration;
 
-
 namespace Data.Database
 {
     public class Adapter
@@ -23,9 +22,9 @@ namespace Data.Database
 
         protected void OpenConnection()
         {
-            string conStr = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
-            SqlConn = new SqlConnection(conStr);
-            SqlConn.Open();
+           string conStr = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+           SqlConn = new SqlConnection(conStr);
+           SqlConn.Open();
         }
 
         protected void CloseConnection()

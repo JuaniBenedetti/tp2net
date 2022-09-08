@@ -10,8 +10,8 @@ namespace Data.Database
     public class UsuarioAdapter : Adapter
     {
         #region DatosEnMemoria
-        // Esta regiÛn solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta ser· eliminada
+        // Esta regi√≥n solo se usa en esta etapa donde los datos se mantienen en memoria.
+        // Al modificar este proyecto para que acceda a la base de datos esta ser√° eliminada
         private static List<Usuario> _Usuarios;
 
         private static List<Usuario> Usuarios
@@ -78,10 +78,10 @@ namespace Data.Database
                 {
                     Usuario usr = new Usuario();
 
-                    usr.ID = (int)drUsuarios["id_usuario"];
-                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.ID = (int)drUsuarios["id"];
+                    usr.NombreUsuario = (string)drUsuarios["usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
-                    usr.Habilitado = (bool)drUsuarios["habilitado"]; //Esto va comentado porque no esta en la BBDD.
+                    //usr.Habilitado = (bool)drUsuarios["habilitado"]; Esto va comentado porque no esta en la BBDD.
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
@@ -108,16 +108,16 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE id_usuario=@id", SqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios", SqlConn);
                 cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 
                 while (drUsuarios.Read())
                 {
-                    usr.ID = (int)drUsuarios["id_usuario"];
-                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.ID = (int)drUsuarios["id"];
+                    usr.NombreUsuario = (string)drUsuarios["usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
-                    usr.Habilitado = (bool)drUsuarios["habilitado"];// Esto va comentado porque no esta en la BBDD.// 10.07 si esta
+                    //usr.Habilitado = (bool)drUsuarios["habilitado"]; Esto va comentado porque no esta en la BBDD.
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
@@ -143,7 +143,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdDelete = new SqlCommand("DELETE usuarios WHERE id_usuario=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("DELETE usuarios WHERE id=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
 
                 cmdDelete.ExecuteNonQuery();
@@ -167,17 +167,15 @@ namespace Data.Database
                 this.OpenConnection();
 
                 SqlCommand cmdSave = new SqlCommand(
-                    "UPDATE usuarios SET nombre_usuario=@nombre_usuario, clave=@clave," +
-                    "nombre=@nombre, apellido=@apellido, email=@email , habilitado= @habilitado " +
-                    "WHERE id_usuario=@id", SqlConn);
+                    "UPDATE usuarios SET usuario=@nombre_usuario, clave=@clave," +
+                    "nombre=@nombre, apellido=@apellido, email=@email " +
+                    "WHERE id=@id", SqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
-                cmdSave.Parameters.Add("@habilitado", SqlDbType.VarChar, 50).Value = usuario.Habilitado;
-
 
                 cmdSave.ExecuteNonQuery();
             }
@@ -199,16 +197,14 @@ namespace Data.Database
                 this.OpenConnection();
 
                 SqlCommand cmdSave = new SqlCommand(
-                    "INSERT INTO usuarios(nombre_usuario, clave, nombre, apellido, email, habilitado) " +
-                    "values(@nombre_usuario, @clave, @nombre, @apellido, @email, @habilitado ) " +
+                    "INSERT INTO usuarios(usuario, clave, nombre, apellido, email) " +
+                    "values(@nombre_usuario, @clave, @nombre, @apellido, @email) " +
                     "SELECT @@identity", SqlConn);
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
-                cmdSave.Parameters.Add("@habilitado", SqlDbType.VarChar, 50).Value = usuario.Habilitado;
-
                 usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)
