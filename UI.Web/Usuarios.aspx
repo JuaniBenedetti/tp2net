@@ -27,10 +27,10 @@
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server" OnLoad="formPanel_Load">
             <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
-            <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="nombreTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
             <br />
             <asp:Label ID="apellidoLabel" runat="server" Text="Apellido: "></asp:Label>
-            <asp:TextBox ID="apellidoTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="apellidoTextBox" runat="server" ValidateRequestMode="Enabled" ValidationGroup="Validation"></asp:TextBox>
             <br />
             <asp:Label ID="emailLabel" runat="server" Text="EMail: "></asp:Label>
             <asp:TextBox ID="emailTextBox" runat="server"></asp:TextBox>
@@ -44,18 +44,31 @@
             <asp:TextBox ID="claveTextBox" TextMode="Password" runat="server"></asp:TextBox>
             <br />
             <asp:Label ID="retetirClaveLabel" runat="server" Text="Repetir Clave: "></asp:Label>
-            <asp:TextBox ID="repetirClaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="repetirClaveTextBox" TextMode="Password" runat="server" ValidationGroup="Validation"></asp:TextBox>
             <br />
         </asp:Panel>
         <asp:Panel ID="gridActionsPanel" runat="server">
             <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
-            <asp:LinkButton ID="eliminarLinkButton" runat="server">Eliminar</asp:LinkButton>
+            <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
             <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
         </asp:Panel>
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
-            <asp:LinkButton ID="cancelarLinkButton" runat="server">Cancelar</asp:LinkButton>
+            <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
         </asp:Panel>
+        <asp:Label ID="Label1" runat="server" OnLoad="Label1_Load" Text="Falta nombre de Usuario"></asp:Label>
+        <p>
+            <asp:Label ID="Label2" runat="server" Text="Falta Apellido"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="Label3" runat="server" Text="Falta Email"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="Label4" runat="server" Text="Falta Usuario"></asp:Label>
+        </p>
+        <p>
+            <asp:Label ID="Label5" runat="server" Text="Clave incorrecta"></asp:Label>
+        </p>
     </form>
 </body>
 </html>
