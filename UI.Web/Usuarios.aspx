@@ -13,7 +13,7 @@
             <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False"
                 SelectedRowStyle-BackColor="Black"
                 SelectedRowStyle-ForeColor="White"
-                DataKeyNames="ID" DataSourceID="SqlDataSource1" >
+                DataKeyNames="ID" >
                 <Columns>
                     <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                     <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
@@ -23,7 +23,6 @@
                     <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server" OnLoad="formPanel_Load">
             <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>

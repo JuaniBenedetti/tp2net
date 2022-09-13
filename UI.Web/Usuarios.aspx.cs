@@ -45,6 +45,7 @@ namespace UI.Web
         {
             LoadGrid();
         }
+
         UsuarioLogic _logic;
         private UsuarioLogic Logic
         {
