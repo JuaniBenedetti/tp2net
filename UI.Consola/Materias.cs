@@ -105,9 +105,9 @@ namespace UI.Consola
                 Console.Write("Ingrese descripcion: ");
                 mate.Desc_materia = Console.ReadLine();
                 Console.Write("Ingrese horas semanales: ");
-                mate.Hs_semanales = Console.ReadLine();
+                mate.Hs_semanales = int.Parse(Console.ReadLine());
                 Console.Write("Ingrese horas totales: ");
-                mate.Hs_totales = Console.ReadLine();
+                mate.Hs_totales = int.Parse(Console.ReadLine());
                 mate.State = BusinessEntity.States.Modified;
                 MateriaNegocio.Save(mate);
             }
@@ -135,9 +135,9 @@ namespace UI.Consola
             Console.Write("Ingrese descripcion: ");
             mate.Desc_materia = Console.ReadLine();
             Console.Write("Ingrese horas semanales: ");
-            mate.Hs_semanales = Console.ReadLine();
+            mate.Hs_semanales = int.Parse(Console.ReadLine());
             Console.Write("Ingrese horas totales: ");
-            mate.Hs_totales = Console.ReadLine();
+            mate.Hs_totales = int.Parse(Console.ReadLine());
             mate.State = BusinessEntity.States.New;
             MateriaNegocio.Save(mate);
             Console.WriteLine();

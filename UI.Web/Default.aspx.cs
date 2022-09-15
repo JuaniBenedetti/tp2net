@@ -18,5 +18,10 @@ namespace UI.Web
         {
             Response.Redirect("~/Usuarios.aspx");
         }
+
+        protected void btnMaterias_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Materias.aspx");
+        }
     }
 }

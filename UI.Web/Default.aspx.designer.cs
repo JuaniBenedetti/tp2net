@@ -33,21 +33,21 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
-        /// btnUsuario control.
+        /// btnUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUsuario;
+        protected global::System.Web.UI.WebControls.Button btnUsuarios;
 
         /// <summary>
-        /// btnComisiones control.
+        /// btnMaterias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComisiones;
+        protected global::System.Web.UI.WebControls.Button btnMaterias;
     }
 }

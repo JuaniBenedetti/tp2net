@@ -11,10 +11,10 @@
     <form id="form1" runat="server">
         <h1 style="height: 39px">-- Menú --</h1>
         <asp:Panel ID="Panel1" runat="server">
-            <asp:Button ID="btnUsuario" runat="server" Text="Usuarios" OnClick="btnUsuario_Click" Width="146px" />
+            <asp:Button ID="btnUsuarios" runat="server" Text="Usuarios" OnClick="btnUsuario_Click" Width="146px" />
             <br />
             <br />
-            <asp:Button ID="btnComisiones" runat="server" Text="Comisiones" Width="146px" />
+            <asp:Button ID="btnMaterias" runat="server" Text="Materias" Width="146px" OnClick="btnMaterias_Click" />
         </asp:Panel>
     </form>
 </body>

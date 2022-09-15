@@ -6,25 +6,25 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
-
+    public partial class WebForm1 : System.Web.UI.Page
     {
-        private Usuario Entity
+        private Materia Entity
         {
             get;
             set;
         }
 
-        UsuarioLogic _logic;
-        private UsuarioLogic Logic
+        MateriaLogic _logic;
+        private MateriaLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new UsuarioLogic();
+                    _logic = new MateriaLogic();
                 }
                 return _logic;
             }
@@ -57,6 +57,12 @@ namespace UI.Web
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.modo_vista(true);
+            LoadGrid();
+        }
+
         public enum FormModes
         {
             Alta,
@@ -70,13 +76,7 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            this.modo_vista(true);
-            LoadGrid();
-        }
-
-        private void LoadGrid()
+        protected void LoadGrid()
         {
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
@@ -90,28 +90,30 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.EMail;
-            this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
-            this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
-            this.claveTextBox.Attributes["value"] = this.Entity.Clave;
-            this.repetirClaveTextBox.Attributes["value"] = this.Entity.Clave;
+            this.desc_materiaTextBox.Text = this.Entity.Desc_materia;
+            this.hs_semanalesTextBox.Text = this.Entity.Hs_semanales.ToString();
+            this.hs_totalesTextBox.Text = this.Entity.Hs_totales.ToString();
+            this.id_planTextBox.Text = this.Entity.Id_Plan.ToString();
         }
 
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Materia materia)
         {
-            usuario.Nombre = this.nombreTextBox.Text;
-            usuario.Apellido = this.apellidoTextBox.Text;
-            usuario.EMail = this.emailTextBox.Text;
-            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
-            usuario.Clave = this.claveTextBox.Text;
-            usuario.Habilitado = this.habilitadoCheckBox.Checked;
+            materia.Desc_materia = this.desc_materiaTextBox.Text;
+            materia.Hs_semanales = int.Parse(this.hs_semanalesTextBox.Text);
+            materia.Hs_totales = int.Parse(this.hs_totalesTextBox.Text);
+            materia.Id_Plan = int.Parse(this.id_planTextBox.Text);
         }
 
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Materia materia)
         {
-            this.Logic.Save(usuario);
+            try
+            {
+                this.Logic.Save(materia);
+            }
+            catch
+            {
+                this.errorBaseLabel.Visible = true;
+            }   
         }
 
         private void DeleteEntity(int id)
@@ -121,26 +123,19 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            this.nombreTextBox.Enabled = enable;
-            this.apellidoTextBox.Enabled = enable;
-            this.emailTextBox.Enabled = enable;
-            this.nombreUsuarioTextBox.Enabled = enable;
-            this.claveTextBox.Visible = enable;
-            this.claveLabel.Visible = enable;
-            this.repetirClaveTextBox.Visible = enable;
-            this.repetirClaveLabel.Visible = enable;
+            this.desc_materiaTextBox.Enabled = enable;
+            this.hs_semanalesTextBox.Enabled = enable;
+            this.hs_totalesTextBox.Enabled = enable;
+            this.id_planTextBox.Enabled = enable;
         }
 
         // Vacia formulario luego de edicion
         private void ClearForm()
         {
-            this.nombreTextBox.Text = string.Empty;
-            this.apellidoTextBox.Text = string.Empty;
-            this.emailTextBox.Text = string.Empty;
-            this.habilitadoCheckBox.Checked = false;
-            this.nombreUsuarioTextBox.Text = string.Empty;
-            this.claveTextBox.Attributes["value"] = string.Empty;
-            this.repetirClaveTextBox.Attributes["value"] = string.Empty;
+            this.desc_materiaTextBox.Text = string.Empty;
+            this.hs_semanalesTextBox.Text = string.Empty;
+            this.hs_totalesTextBox.Text = string.Empty;
+            this.id_planTextBox.Text = string.Empty;
         }
 
         // BOTONES GRID
@@ -179,32 +174,34 @@ namespace UI.Web
             switch (this.FormMode)
             {
                 case FormModes.Alta:
-                    this.Entity = new Usuario();
+                    this.Entity = new Materia();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.LoadGrid();
                     break;
-               
                 case FormModes.Baja:
                     this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    this.Entity = new Usuario();
+                    this.Entity = new Materia();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.LoadGrid();
                     break;
                 default:
                     break;
             }
-            this.modo_vista(true);
+            this.Controls.Add(this.errorBaseLabel);
+            if (this.errorBaseLabel.Visible == false)
+            {
+                this.modo_vista(true);
+                this.LoadGrid();
+            }
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
+            this.errorBaseLabel.Visible = false;
             this.modo_vista(true);
         }
 
