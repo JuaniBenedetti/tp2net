@@ -13,5 +13,10 @@ namespace UI.Web
         {
 
         }
+
+        protected void btnUsuario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Usuarios.aspx");
+        }
     }
 }

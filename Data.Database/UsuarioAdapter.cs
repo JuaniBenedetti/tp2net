@@ -81,7 +81,7 @@ namespace Data.Database
                     usr.ID = (int)drUsuarios["id"];
                     usr.NombreUsuario = (string)drUsuarios["usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
-                    //usr.Habilitado = (bool)drUsuarios["habilitado"]; Esto va comentado porque no esta en la BBDD.
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
@@ -108,7 +108,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios", SqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE id=@id", SqlConn);
                 cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
 
@@ -117,7 +117,7 @@ namespace Data.Database
                     usr.ID = (int)drUsuarios["id"];
                     usr.NombreUsuario = (string)drUsuarios["usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
-                    //usr.Habilitado = (bool)drUsuarios["habilitado"]; Esto va comentado porque no esta en la BBDD.
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
@@ -168,7 +168,8 @@ namespace Data.Database
 
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE usuarios SET usuario=@nombre_usuario, clave=@clave," +
-                    "nombre=@nombre, apellido=@apellido, email=@email " +
+                    "nombre=@nombre, apellido=@apellido, email=@email," +
+                    "habilitado=@habilitado " +
                     "WHERE id=@id", SqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
@@ -176,6 +177,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
+                cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
 
                 cmdSave.ExecuteNonQuery();
             }
@@ -197,14 +199,15 @@ namespace Data.Database
                 this.OpenConnection();
 
                 SqlCommand cmdSave = new SqlCommand(
-                    "INSERT INTO usuarios(usuario, clave, nombre, apellido, email) " +
-                    "values(@nombre_usuario, @clave, @nombre, @apellido, @email) " +
+                    "INSERT INTO usuarios(usuario, clave, nombre, apellido, email, habilitado) " +
+                    "values(@nombre_usuario, @clave, @nombre, @apellido, @email, @habilitado) " +
                     "SELECT @@identity", SqlConn);
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
+                cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)

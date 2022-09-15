@@ -9,8 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <h1 style="height: 39px">-- Menú --</h1>
+        <asp:Panel ID="Panel1" runat="server">
+            <asp:Button ID="btnUsuario" runat="server" Text="Usuarios" OnClick="btnUsuario_Click" Width="146px" />
+            <br />
+            <br />
+            <asp:Button ID="btnComisiones" runat="server" Text="Comisiones" Width="146px" />
+        </asp:Panel>
     </form>
 </body>
 </html>
