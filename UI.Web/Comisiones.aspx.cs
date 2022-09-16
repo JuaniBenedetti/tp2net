@@ -9,22 +9,22 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Comisiones : System.Web.UI.Page
     {
-        private Materia Entity
+        private Comision Entity
         {
             get;
             set;
         }
 
-        MateriaLogic _logic;
-        private MateriaLogic Logic
+        ComisionLogic _logic;
+        private ComisionLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new MateriaLogic();
+                    _logic = new ComisionLogic();
                 }
                 return _logic;
             }
@@ -90,29 +90,27 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            this.desc_materiaTextBox.Text = this.Entity.Desc_materia;
-            this.hs_semanalesTextBox.Text = this.Entity.Hs_semanales.ToString();
-            this.hs_totalesTextBox.Text = this.Entity.Hs_totales.ToString();
+            this.desc_comisionTextBox.Text = this.Entity.Desc_comision;
+            this.anio_especialidadTextBox.Text = this.Entity.Anio_especialidad.ToString();
             this.id_planTextBox.Text = this.Entity.Id_Plan.ToString();
         }
 
-        private void LoadEntity(Materia materia)
+        private void LoadEntity(Comision comision)
         {
-            materia.Desc_materia = this.desc_materiaTextBox.Text;
-            materia.Hs_semanales = int.Parse(this.hs_semanalesTextBox.Text);
-            materia.Hs_totales = int.Parse(this.hs_totalesTextBox.Text);
-            materia.Id_Plan = int.Parse(this.id_planTextBox.Text);
+            comision.Desc_comision = this.desc_comisionTextBox.Text;
+            comision.Anio_especialidad = int.Parse(this.anio_especialidadTextBox.Text);
+            comision.Id_Plan = int.Parse(this.id_planTextBox.Text);
         }
 
-        private void SaveEntity(Materia materia)
+        private void SaveEntity(Comision comision)
         {
             try
             {
-                this.Logic.Save(materia);
+                this.Logic.Save(comision);
             }
             catch
             {
-                Response.Write("<script>alert('Error: La materia no se ha guardado, por favor verifique los valores ingresados.')</script>");
+                Response.Write("<script>alert('Error: La comision no se ha guardado, por favor verifique los valores ingresados.')</script>");
             }
         }
 
@@ -123,18 +121,16 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            this.desc_materiaTextBox.Enabled = enable;
-            this.hs_semanalesTextBox.Enabled = enable;
-            this.hs_totalesTextBox.Enabled = enable;
+            this.desc_comisionTextBox.Enabled = enable;
+            this.anio_especialidadTextBox.Enabled = enable;
             this.id_planTextBox.Enabled = enable;
         }
 
         // Vacia formulario luego de edicion
         private void ClearForm()
         {
-            this.desc_materiaTextBox.Text = string.Empty;
-            this.hs_semanalesTextBox.Text = string.Empty;
-            this.hs_totalesTextBox.Text = string.Empty;
+            this.desc_comisionTextBox.Text = string.Empty;
+            this.anio_especialidadTextBox.Text = string.Empty;
             this.id_planTextBox.Text = string.Empty;
         }
 
@@ -174,7 +170,7 @@ namespace UI.Web
             switch (this.FormMode)
             {
                 case FormModes.Alta:
-                    this.Entity = new Materia();
+                    this.Entity = new Comision();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     break;
@@ -182,7 +178,7 @@ namespace UI.Web
                     this.DeleteEntity(this.SelectedID);
                     break;
                 case FormModes.Modificacion:
-                    this.Entity = new Materia();
+                    this.Entity = new Comision();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -208,6 +204,11 @@ namespace UI.Web
             this.formPanel.Visible = !modo;
             this.gridActionsPanel.Visible = modo;
             this.formActionsPanel.Visible = !modo;
+        }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Materias
+    public partial class Comisiones
     {
 
         /// <summary>
@@ -51,85 +51,58 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// desc_materiaLabel control.
+        /// desc_comisionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label desc_materiaLabel;
+        protected global::System.Web.UI.WebControls.Label desc_comisionLabel;
 
         /// <summary>
-        /// desc_materiaTextBox control.
+        /// desc_comisionTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox desc_materiaTextBox;
+        protected global::System.Web.UI.WebControls.TextBox desc_comisionTextBox;
 
         /// <summary>
-        /// desc_materiaValidator control.
+        /// desc_comisionValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator desc_materiaValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator desc_comisionValidator;
 
         /// <summary>
-        /// hs_semanalesLabel control.
+        /// anio_especialidadLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hs_semanalesLabel;
+        protected global::System.Web.UI.WebControls.Label anio_especialidadLabel;
 
         /// <summary>
-        /// hs_semanalesTextBox control.
+        /// anio_especialidadTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hs_semanalesTextBox;
+        protected global::System.Web.UI.WebControls.TextBox anio_especialidadTextBox;
 
         /// <summary>
-        /// hs_semanalesValidator control.
+        /// anio_especialidadValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator hs_semanalesValidator;
-
-        /// <summary>
-        /// hs_totalesLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hs_totalesLabel;
-
-        /// <summary>
-        /// hs_totalesTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hs_totalesTextBox;
-
-        /// <summary>
-        /// hs_totalesValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator hs_totalesValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator anio_especialidadValidator;
 
         /// <summary>
         /// id_planLabel control.
@@ -193,6 +166,15 @@ namespace UI.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton eliminarLinkButton;
+
+        /// <summary>
+        /// btnMenuPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMenuPrincipal;
 
         /// <summary>
         /// formActionsPanel control.

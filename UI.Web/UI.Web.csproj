@@ -126,6 +126,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Materias.aspx" />
+    <Content Include="Comisiones.aspx" />
     <Content Include="Cursos.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -234,6 +235,12 @@
     <Compile Include="Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Comisiones.aspx.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comisiones.aspx.designer.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
     <Compile Include="Cursos.aspx.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

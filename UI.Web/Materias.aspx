@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UI.Web.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UI.Web.Materias" %>
 
 <!DOCTYPE html>
 
@@ -37,7 +37,7 @@
             <br />
             <asp:Label ID="id_planLabel" runat="server" Text="ID de plan: "></asp:Label>
             <asp:TextBox ID="id_planTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="id_planValidator" ControlToValidate="id_planTextBox" ErrorMessage="Debe ingresar el ID del plan." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="id_planValidator" ControlToValidate="id_planTextBox" ErrorMessage="Debe ingresar un ID del plan." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
             <br />
         </asp:Panel>
         <asp:Panel ID="gridActionsPanel" runat="server" Height="35px">
