@@ -112,8 +112,8 @@ namespace UI.Web
             }
             catch
             {
-                this.errorBaseLabel.Visible = true;
-            }   
+                Response.Write("<script>alert('Error: La materia no se ha guardado, por favor verifique los valores ingresados.')</script>");
+            }
         }
 
         private void DeleteEntity(int id)
@@ -191,17 +191,12 @@ namespace UI.Web
                 default:
                     break;
             }
-            this.Controls.Add(this.errorBaseLabel);
-            if (this.errorBaseLabel.Visible == false)
-            {
-                this.modo_vista(true);
-                this.LoadGrid();
-            }
+            this.modo_vista(true);
+            this.LoadGrid();
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
-            this.errorBaseLabel.Visible = false;
             this.modo_vista(true);
         }
 
