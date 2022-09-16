@@ -176,7 +176,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al Crear Curso", Ex);
                 throw ExcepcionManejada;
             }
             finally
