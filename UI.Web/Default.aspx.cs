@@ -28,5 +28,10 @@ namespace UI.Web
         {
             Response.Redirect("~/Comisiones.aspx");
         }
+
+        protected void btnCursos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Cursos.aspx");
+        }
     }
 }
