@@ -45,5 +45,11 @@ namespace UI.Desktop
             Comisiones ud = new Comisiones();
             ud.ShowDialog();
         }
+
+        private void btnMenuEspecialidad_Click(object sender, EventArgs e)
+        {
+            Especialidades ud = new Especialidades();
+            ud.ShowDialog();
+        }
     }
 }
