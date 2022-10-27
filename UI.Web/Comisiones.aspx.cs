@@ -6,25 +6,25 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
-
+    public partial class Comisiones : System.Web.UI.Page
     {
-        private Usuario Entity
+        private Comision Entity
         {
             get;
             set;
         }
-        
-        UsuarioLogic _logic;
-        private UsuarioLogic Logic
+
+        ComisionLogic _logic;
+        private ComisionLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new UsuarioLogic();
+                    _logic = new ComisionLogic();
                 }
                 return _logic;
             }
@@ -57,6 +57,12 @@ namespace UI.Web
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.modo_vista(true);
+            LoadGrid();
+        }
+
         public enum FormModes
         {
             Alta,
@@ -70,13 +76,7 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            this.modo_vista(true);
-            LoadGrid();
-        }
-
-        private void LoadGrid()
+        protected void LoadGrid()
         {
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
@@ -90,28 +90,28 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.EMail;
-            this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
-            this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
-            this.claveTextBox.Attributes["value"] = this.Entity.Clave;
-            this.repetirClaveTextBox.Attributes["value"] = this.Entity.Clave;
+            this.desc_comisionTextBox.Text = this.Entity.Desc_comision;
+            this.anio_especialidadTextBox.Text = this.Entity.Anio_especialidad.ToString();
+            this.id_planTextBox.Text = this.Entity.Id_Plan.ToString();
         }
 
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Comision comision)
         {
-            usuario.Nombre = this.nombreTextBox.Text;
-            usuario.Apellido = this.apellidoTextBox.Text;
-            usuario.EMail = this.emailTextBox.Text;
-            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
-            usuario.Clave = this.claveTextBox.Text;
-            usuario.Habilitado = this.habilitadoCheckBox.Checked;
+            comision.Desc_comision = this.desc_comisionTextBox.Text;
+            comision.Anio_especialidad = int.Parse(this.anio_especialidadTextBox.Text);
+            comision.Id_Plan = int.Parse(this.id_planTextBox.Text);
         }
 
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Comision comision)
         {
-            this.Logic.Save(usuario);
+            try
+            {
+                this.Logic.Save(comision);
+            }
+            catch
+            {
+                Response.Write("<script>alert('Error: La comision no se ha guardado, por favor verifique los valores ingresados.')</script>");
+            }
         }
 
         private void DeleteEntity(int id)
@@ -121,26 +121,17 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            this.nombreTextBox.Enabled = enable;
-            this.apellidoTextBox.Enabled = enable;
-            this.emailTextBox.Enabled = enable;
-            this.nombreUsuarioTextBox.Enabled = enable;
-            this.claveTextBox.Visible = enable;
-            this.claveLabel.Visible = enable;
-            this.repetirClaveTextBox.Visible = enable;
-            this.repetirClaveLabel.Visible = enable;
+            this.desc_comisionTextBox.Enabled = enable;
+            this.anio_especialidadTextBox.Enabled = enable;
+            this.id_planTextBox.Enabled = enable;
         }
 
         // Vacia formulario luego de edicion
         private void ClearForm()
         {
-            this.nombreTextBox.Text = string.Empty;
-            this.apellidoTextBox.Text = string.Empty;
-            this.emailTextBox.Text = string.Empty;
-            this.habilitadoCheckBox.Checked = false;
-            this.nombreUsuarioTextBox.Text = string.Empty;
-            this.claveTextBox.Attributes["value"] = string.Empty;
-            this.repetirClaveTextBox.Attributes["value"] = string.Empty;
+            this.desc_comisionTextBox.Text = string.Empty;
+            this.anio_especialidadTextBox.Text = string.Empty;
+            this.id_planTextBox.Text = string.Empty;
         }
 
         // BOTONES GRID
@@ -179,28 +170,25 @@ namespace UI.Web
             switch (this.FormMode)
             {
                 case FormModes.Alta:
-                    this.Entity = new Usuario();
+                    this.Entity = new Comision();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.LoadGrid();
                     break;
-               
                 case FormModes.Baja:
                     this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    this.Entity = new Usuario();
+                    this.Entity = new Comision();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.LoadGrid();
                     break;
                 default:
                     break;
             }
             this.modo_vista(true);
+            this.LoadGrid();
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)

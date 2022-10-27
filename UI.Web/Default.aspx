@@ -15,6 +15,12 @@
             <br />
             <br />
             <asp:Button ID="btnMaterias" runat="server" Text="Materias" Width="146px" OnClick="btnMaterias_Click" />
+            <br />
+            <br />
+            <asp:Button ID="btnComisiones" runat="server" Text="Comisiones" Width="146px" OnClick="btnComisiones_Click" />
+            <br />
+            <br />
+            <asp:Button ID="btnCursos" runat="server" Text="Cursos" Width="146px" OnClick="btnCursos_Click" />
         </asp:Panel>
     </form>
 </body>

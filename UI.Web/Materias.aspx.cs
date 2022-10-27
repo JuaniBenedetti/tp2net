@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Materias : System.Web.UI.Page
     {
         private Materia Entity
         {
@@ -76,17 +76,6 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        protected void LoadGrid()
-        {
-            this.gridView.DataSource = this.Logic.GetAll();
-            this.gridView.DataBind();
-        }
-
-        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.SelectedID = (int)this.gridView.SelectedValue;
-        }
-
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
@@ -102,6 +91,17 @@ namespace UI.Web
             materia.Hs_semanales = int.Parse(this.hs_semanalesTextBox.Text);
             materia.Hs_totales = int.Parse(this.hs_totalesTextBox.Text);
             materia.Id_Plan = int.Parse(this.id_planTextBox.Text);
+        }
+
+        protected void LoadGrid()
+        {
+            this.gridView.DataSource = this.Logic.GetAll();
+            this.gridView.DataBind();
+        }
+
+        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedID = (int)this.gridView.SelectedValue;
         }
 
         private void SaveEntity(Materia materia)
@@ -200,7 +200,6 @@ namespace UI.Web
             this.modo_vista(true);
         }
 
-        // Otros metodos
         protected void modo_vista(bool modo)
         {
             // true: seleccion - false: edicion.
@@ -208,6 +207,11 @@ namespace UI.Web
             this.formPanel.Visible = !modo;
             this.gridActionsPanel.Visible = modo;
             this.formActionsPanel.Visible = !modo;
+        }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

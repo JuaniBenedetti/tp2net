@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Materias.aspx.cs" Inherits="UI.Web.Materias" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Comisiones.aspx.cs" Inherits="UI.Web.Comisiones" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Materias</title>
+    <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,30 +14,25 @@
                 SelectedRowStyle-ForeColor="White"
                 DataKeyNames="ID" Height="21px" OnSelectedIndexChanged="GridView_SelectedIndexChanged" Width="674px" >
                 <Columns>
-                    <asp:BoundField HeaderText="Descripcion" DataField="desc_materia" />
-                    <asp:BoundField HeaderText="Horas Semanales" DataField="hs_semanales" />
-                    <asp:BoundField HeaderText="Horas Totales" DataField="hs_totales" />
+                    <asp:BoundField HeaderText="Descripcion" DataField="desc_comision" />
+                    <asp:BoundField HeaderText="Año Especialidad" DataField="anio_especialidad" />
                     <asp:BoundField HeaderText="ID Plan" DataField="id_plan" />
                     <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
                 </Columns>
             </asp:GridView>
         </asp:Panel>
         <asp:Panel ID="formPanel" Visible="false" runat="server" Height="93px">
-            <asp:Label ID="desc_materiaLabel" runat="server" Text="Descripcion: "></asp:Label>
-            <asp:TextBox ID="desc_materiaTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="desc_materiaValidator" ControlToValidate="desc_materiaTextBox" ErrorMessage="Debe ingresar una descripcion." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:Label ID="desc_comisionLabel" runat="server" Text="Descripcion: "></asp:Label>
+            <asp:TextBox ID="desc_comisionTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="desc_comisionValidator" ControlToValidate="desc_comisionTextBox" ErrorMessage="Debe ingresar una descripcion." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="hs_semanalesLabel" runat="server" Text="Horas Semanales: "></asp:Label>
-            <asp:TextBox ID="hs_semanalesTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="hs_semanalesValidator" ControlToValidate="hs_semanalesTextBox" ErrorMessage="Debe ingresar las horas semanales." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:Label ID="anio_especialidadLabel" runat="server" Text="Año de Especialidad: "></asp:Label>
+            <asp:TextBox ID="anio_especialidadTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="anio_especialidadValidator" ControlToValidate="anio_especialidadTextBox" ErrorMessage="Debe ingresar el año de especialidad." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
             <br />
-            <asp:Label ID="hs_totalesLabel" runat="server" Text="Horas Totales: "></asp:Label>
-            <asp:TextBox ID="hs_totalesTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="hs_totalesValidator" ControlToValidate="hs_totalesTextBox" ErrorMessage="Debe ingresar las horas totales." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
-            <br />
-            <asp:Label ID="id_planLabel" runat="server" Text="ID de plan: "></asp:Label>
+            <asp:Label ID="id_planLabel" runat="server" Text="ID de Plan: "></asp:Label>
             <asp:TextBox ID="id_planTextBox" runat="server" ValidateRequestMode="Disabled" ValidationGroup="Validation"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="id_planValidator" ControlToValidate="id_planTextBox" ErrorMessage="Debe ingresar un ID del plan." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="id_planValidator" ControlToValidate="id_planTextBox" ErrorMessage="Debe ingresar un ID de plan." Display="Static" InitialValue="" Width="1%" runat="server" ForeColor="Red">*</asp:RequiredFieldValidator>
             <br />
         </asp:Panel>
         <asp:Panel ID="gridActionsPanel" runat="server" Height="85px">
