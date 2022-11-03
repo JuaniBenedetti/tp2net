@@ -217,5 +217,10 @@ namespace UI.Web
             this.gridActionsPanel.Visible = modo;
             this.formActionsPanel.Visible = !modo;
         }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

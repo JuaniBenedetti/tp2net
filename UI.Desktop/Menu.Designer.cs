@@ -34,6 +34,7 @@ namespace UI.Desktop
             this.btnMenuCursos = new System.Windows.Forms.Button();
             this.btnMenuMaterias = new System.Windows.Forms.Button();
             this.btnMenuComisiones = new System.Windows.Forms.Button();
+            this.btnMenuEspecialidad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -85,11 +86,22 @@ namespace UI.Desktop
             this.btnMenuComisiones.UseVisualStyleBackColor = true;
             this.btnMenuComisiones.Click += new System.EventHandler(this.btnMenuComisiones_Click);
             // 
+            // btnMenuEspecialidad
+            // 
+            this.btnMenuEspecialidad.Location = new System.Drawing.Point(53, 92);
+            this.btnMenuEspecialidad.Name = "btnMenuEspecialidad";
+            this.btnMenuEspecialidad.Size = new System.Drawing.Size(75, 23);
+            this.btnMenuEspecialidad.TabIndex = 5;
+            this.btnMenuEspecialidad.Text = "Especialidad";
+            this.btnMenuEspecialidad.UseVisualStyleBackColor = true;
+            this.btnMenuEspecialidad.Click += new System.EventHandler(this.btnMenuEspecialidad_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 140);
+            this.Controls.Add(this.btnMenuEspecialidad);
             this.Controls.Add(this.btnMenuComisiones);
             this.Controls.Add(this.btnMenuMaterias);
             this.Controls.Add(this.btnMenuCursos);
@@ -110,5 +122,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnMenuCursos;
         private System.Windows.Forms.Button btnMenuMaterias;
         private System.Windows.Forms.Button btnMenuComisiones;
+        private System.Windows.Forms.Button btnMenuEspecialidad;
     }
 }

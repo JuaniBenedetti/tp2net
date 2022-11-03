@@ -55,18 +55,24 @@
             <asp:CompareValidator ID="validatorComparacionClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirClaveTextBox" ForeColor="Red">*Las claves no coinciden.</asp:CompareValidator>
             <br />
         </asp:Panel>
-        <asp:Panel ID="gridActionsPanel" runat="server" Height="35px">
+        <asp:Panel ID="gridActionsPanel" runat="server" Height="85px">
             <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
             &nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            <br />
+            <br />
+            <asp:Button ID="btnMenuPrincipal" runat="server" Text="Menu Principal" Width="167px" OnClick="btnMenuPrincipal_Click" />
         </asp:Panel>
-        <asp:Panel ID="formActionsPanel" runat="server" Height="35px">
+        <asp:Panel ID="formActionsPanel" runat="server" Height="36px">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click" CausesValidation="False">Cancelar</asp:LinkButton>
+            <br />
+            <br />
         </asp:Panel>
         <asp:ValidationSummary ID="ValidationFormPanel" runat="server" ForeColor="Red" />
     </form>

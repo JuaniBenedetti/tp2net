@@ -58,6 +58,12 @@ namespace UI.Web
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.modo_vista(true);
+            LoadGrid();
+        }
+
         public enum FormModes
         {
             Alta,
@@ -65,14 +71,19 @@ namespace UI.Web
             Modificacion
         }
 
+        public FormModes FormMode
+        {
+            get { return (FormModes)this.ViewState["FormMode"]; }
+            set { this.ViewState["FormMode"] = value; }
+        }
+
         private void LoadForm(int id)
         {
-           this.Entity = this.Logic.GetOne(id);
+            this.Entity = this.Logic.GetOne(id);
             this.IdComisionTextBox.Text = (this.Entity.Id_comision).ToString();
             this.IdMateriaTextBox.Text = this.Entity.Id_materia.ToString();
             this.AnioCalendarioTextBox.Text = this.Entity.Año_calendario.ToString();
             this.CupoTextBox.Text = this.Entity.Cupo.ToString();
-         
         }
 
         private void LoadEntity(Curso curso)
@@ -80,13 +91,30 @@ namespace UI.Web
             curso.Id_comision =int.Parse( this.IdComisionTextBox.Text);
             curso.Id_materia = int.Parse(this.IdMateriaTextBox.Text);
             curso.Año_calendario = int.Parse(this.AnioCalendarioTextBox.Text);
-            curso.Cupo = int.Parse(this.CupoTextBox.Text);
-          
+            curso.Cupo = int.Parse(this.CupoTextBox.Text);         
+        }
+
+        private void LoadGrid()
+        {
+            this.gridView.DataSource = this.Logic.GetAll();
+            this.gridView.DataBind();
+        }
+
+        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedID = (int)this.gridView.SelectedValue;
         }
 
         private void SaveEntity(Curso curso)
         {
-          this.Logic.Save(curso);
+            try
+            {
+                this.Logic.Save(curso);
+            }
+            catch
+            {
+                Response.Write("<script>alert('Error: El curso no se ha guardado, por favor verifique los valores ingresados.')</script>");
+            }
         }
 
         private void DeleteEntity(int id)
@@ -102,6 +130,8 @@ namespace UI.Web
             this.CupoTextBox.Enabled = enable;
             
         }
+
+        // Vacia formulario luego de edicion
         private void ClearForm()
         {
             this.IdMateriaTextBox.Text = string.Empty;
@@ -109,36 +139,6 @@ namespace UI.Web
             this.AnioCalendarioTextBox.Text = string.Empty;
             this.CupoTextBox.Text = string.Empty;
            
-        }
-
-
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            this.modo_vista(true);
-            LoadGrid();
-        }
-        private void LoadGrid()
-        {
-            this.gridView.DataSource = this.Logic.GetAll();
-            this.gridView.DataBind();
-        }
-        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.SelectedID = (int)this.gridView.SelectedValue;
-        }
-        protected void modo_vista(bool modo)
-        {
-            // true: seleccion - false: edicion.
-            this.gridPanel.Visible = modo;
-            this.formPanel.Visible = !modo;
-            this.gridActionsPanel.Visible = modo;
-            this.formActionsPanel.Visible = !modo;
         }
 
         // BOTONES GRID
@@ -177,15 +177,12 @@ namespace UI.Web
             switch (this.FormMode)
             {
                 case FormModes.Alta:
-                    this.Entity = new Business.Entities.Curso();
+                    this.Entity = new Curso();
                     this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                    this.SaveEntity(this.Entity); 
                     break;
-
                 case FormModes.Baja:
                     this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
                     break;
                 case FormModes.Modificacion:
                     this.Entity = new Curso();
@@ -193,17 +190,31 @@ namespace UI.Web
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
-                    this.LoadGrid();
                     break;
                 default:
                     break;
             }
             this.modo_vista(true);
+            this.LoadGrid();
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
             this.modo_vista(true);
+        }
+
+        protected void modo_vista(bool modo)
+        {
+            // true: seleccion - false: edicion.
+            this.gridPanel.Visible = modo;
+            this.formPanel.Visible = !modo;
+            this.gridActionsPanel.Visible = modo;
+            this.formActionsPanel.Visible = !modo;
+        }
+
+        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
     }
 }
