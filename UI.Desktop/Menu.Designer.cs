@@ -35,6 +35,7 @@ namespace UI.Desktop
             this.btnMenuMaterias = new System.Windows.Forms.Button();
             this.btnMenuComisiones = new System.Windows.Forms.Button();
             this.btnMenuEspecialidad = new System.Windows.Forms.Button();
+            this.btnPersonas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -96,11 +97,22 @@ namespace UI.Desktop
             this.btnMenuEspecialidad.UseVisualStyleBackColor = true;
             this.btnMenuEspecialidad.Click += new System.EventHandler(this.btnMenuEspecialidad_Click);
             // 
+            // btnPersonas
+            // 
+            this.btnPersonas.Location = new System.Drawing.Point(154, 92);
+            this.btnPersonas.Name = "btnPersonas";
+            this.btnPersonas.Size = new System.Drawing.Size(75, 23);
+            this.btnPersonas.TabIndex = 6;
+            this.btnPersonas.Text = "Personas";
+            this.btnPersonas.UseVisualStyleBackColor = true;
+            this.btnPersonas.Click += new System.EventHandler(this.btnPersonas_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 140);
+            this.Controls.Add(this.btnPersonas);
             this.Controls.Add(this.btnMenuEspecialidad);
             this.Controls.Add(this.btnMenuComisiones);
             this.Controls.Add(this.btnMenuMaterias);
@@ -123,5 +135,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnMenuMaterias;
         private System.Windows.Forms.Button btnMenuComisiones;
         private System.Windows.Forms.Button btnMenuEspecialidad;
+        private System.Windows.Forms.Button btnPersonas;
     }
 }

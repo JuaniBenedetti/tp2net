@@ -51,5 +51,11 @@ namespace UI.Desktop
             Especialidades ud = new Especialidades();
             ud.ShowDialog();
         }
+
+        private void btnPersonas_Click(object sender, EventArgs e)
+        {
+            Personas pd = new Personas();
+            pd.ShowDialog();
+        }
     }
 }
