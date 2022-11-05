@@ -33,14 +33,14 @@ namespace UI.Desktop
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
+            this.Año_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsCursos = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.Año_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -86,6 +86,11 @@ namespace UI.Desktop
             // 
             // dgvCursos
             // 
+            this.dgvCursos.AllowUserToAddRows = false;
+            this.dgvCursos.AllowUserToDeleteRows = false;
+            this.dgvCursos.AllowUserToResizeColumns = false;
+            this.dgvCursos.AllowUserToResizeRows = false;
+            this.dgvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Año_calendario,
@@ -94,9 +99,22 @@ namespace UI.Desktop
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(3, 3);
             this.dgvCursos.Name = "dgvCursos";
+            this.dgvCursos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvCursos.Size = new System.Drawing.Size(794, 389);
             this.dgvCursos.TabIndex = 0;
             this.dgvCursos.Click += new System.EventHandler(this.dgvCursos_Click);
+            // 
+            // Año_calendario
+            // 
+            this.Año_calendario.DataPropertyName = "Año_calendario";
+            this.Año_calendario.HeaderText = "Año de Calendario";
+            this.Año_calendario.Name = "Año_calendario";
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.Name = "Cupo";
             // 
             // btnActualizar
             // 
@@ -162,18 +180,6 @@ namespace UI.Desktop
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
-            // Año_calendario
-            // 
-            this.Año_calendario.DataPropertyName = "Año_calendario";
-            this.Año_calendario.HeaderText = "Año de Calendario";
-            this.Año_calendario.Name = "Año_calendario";
-            // 
-            // Cupo
-            // 
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.Name = "Cupo";
             // 
             // Cursos
             // 

@@ -40,12 +40,20 @@ namespace UI.Desktop
             this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewPlanes
             // 
+            this.dataGridViewPlanes.AllowUserToAddRows = false;
+            this.dataGridViewPlanes.AllowUserToDeleteRows = false;
+            this.dataGridViewPlanes.AllowUserToResizeColumns = false;
+            this.dataGridViewPlanes.AllowUserToResizeRows = false;
+            this.dataGridViewPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -137,6 +145,32 @@ namespace UI.Desktop
             this.toolStripButtonEliminar.Text = "toolStripButton3";
             this.toolStripButtonEliminar.Click += new System.EventHandler(this.toolStripButtonEliminar_Click_1);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.46563F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.534369F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 423);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
+            this.toolStripContainer1.TabIndex = 0;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
             // Planes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,12 +180,16 @@ namespace UI.Desktop
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dataGridViewPlanes);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.toolStripContainer1);
             this.Name = "Planes";
             this.Text = "Planes";
             this.Load += new System.EventHandler(this.Planes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.toolStripContainer1.ResumeLayout(false);
+            this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +207,7 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton toolStripButtonNuevo;
         private System.Windows.Forms.ToolStripButton toolStripButtonEditar;
         private System.Windows.Forms.ToolStripButton toolStripButtonEliminar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
     }
 }
