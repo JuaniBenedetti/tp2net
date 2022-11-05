@@ -51,5 +51,11 @@ namespace UI.Desktop
             EspecialidadesList ud = new EspecialidadesList();
             ud.ShowDialog();
         }
+
+        private void btnPlanes_Click(object sender, EventArgs e)
+        {
+           Planes ud = new Planes();
+            ud.ShowDialog();
+        }
     }
 }

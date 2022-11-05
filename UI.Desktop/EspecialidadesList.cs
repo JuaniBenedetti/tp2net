@@ -39,6 +39,7 @@ namespace UI.Desktop
         {
             EspecialidadDesktop esp = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
             esp.ShowDialog();
+            Listar();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

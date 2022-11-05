@@ -114,7 +114,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear especialidad", Ex);
                 throw ExcepcionManejada;
             }
             finally { this.CloseConnection(); }
@@ -130,7 +130,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al borrar la especialidad", Ex);
                 throw ExcepcionManejada;
             }
             finally { this.CloseConnection(); }
