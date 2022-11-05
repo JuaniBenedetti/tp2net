@@ -195,6 +195,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlanesDesktop.resx">
       <DependentUpon>PlanesDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonaDesktop.resx">
       <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </EmbeddedResource>

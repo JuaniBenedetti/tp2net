@@ -29,7 +29,7 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lMenu = new System.Windows.Forms.Label();
             this.btnMenuUsuarios = new System.Windows.Forms.Button();
             this.btnMenuCursos = new System.Windows.Forms.Button();
             this.btnMenuMaterias = new System.Windows.Forms.Button();
@@ -40,20 +40,23 @@ namespace UI.Desktop
             this.btnInscribir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lMenu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenidos, elija la opcion que desee!";
+            this.lMenu.AutoSize = true;
+            this.lMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lMenu.Location = new System.Drawing.Point(22, 21);
+            this.lMenu.Name = "lMenu";
+            this.lMenu.Size = new System.Drawing.Size(205, 24);
+            this.lMenu.TabIndex = 0;
+            this.lMenu.Text = "Seleccione una opción";
+            this.lMenu.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnMenuUsuarios
             // 
-            this.btnMenuUsuarios.Location = new System.Drawing.Point(53, 49);
+            this.btnMenuUsuarios.Location = new System.Drawing.Point(53, 91);
             this.btnMenuUsuarios.Name = "btnMenuUsuarios";
-            this.btnMenuUsuarios.Size = new System.Drawing.Size(75, 23);
+            this.btnMenuUsuarios.Size = new System.Drawing.Size(125, 25);
             this.btnMenuUsuarios.TabIndex = 1;
             this.btnMenuUsuarios.Text = "Usuarios";
             this.btnMenuUsuarios.UseVisualStyleBackColor = true;
@@ -61,9 +64,9 @@ namespace UI.Desktop
             // 
             // btnMenuCursos
             // 
-            this.btnMenuCursos.Location = new System.Drawing.Point(154, 49);
+            this.btnMenuCursos.Location = new System.Drawing.Point(53, 122);
             this.btnMenuCursos.Name = "btnMenuCursos";
-            this.btnMenuCursos.Size = new System.Drawing.Size(75, 23);
+            this.btnMenuCursos.Size = new System.Drawing.Size(125, 25);
             this.btnMenuCursos.TabIndex = 2;
             this.btnMenuCursos.Text = "Cursos";
             this.btnMenuCursos.UseVisualStyleBackColor = true;
@@ -71,9 +74,9 @@ namespace UI.Desktop
             // 
             // btnMenuMaterias
             // 
-            this.btnMenuMaterias.Location = new System.Drawing.Point(253, 49);
+            this.btnMenuMaterias.Location = new System.Drawing.Point(53, 248);
             this.btnMenuMaterias.Name = "btnMenuMaterias";
-            this.btnMenuMaterias.Size = new System.Drawing.Size(75, 23);
+            this.btnMenuMaterias.Size = new System.Drawing.Size(125, 25);
             this.btnMenuMaterias.TabIndex = 3;
             this.btnMenuMaterias.Text = "Materias";
             this.btnMenuMaterias.UseVisualStyleBackColor = true;
@@ -81,9 +84,9 @@ namespace UI.Desktop
             // 
             // btnMenuComisiones
             // 
-            this.btnMenuComisiones.Location = new System.Drawing.Point(359, 49);
+            this.btnMenuComisiones.Location = new System.Drawing.Point(53, 279);
             this.btnMenuComisiones.Name = "btnMenuComisiones";
-            this.btnMenuComisiones.Size = new System.Drawing.Size(75, 23);
+            this.btnMenuComisiones.Size = new System.Drawing.Size(125, 25);
             this.btnMenuComisiones.TabIndex = 4;
             this.btnMenuComisiones.Text = "Comisiones";
             this.btnMenuComisiones.UseVisualStyleBackColor = true;
@@ -91,9 +94,9 @@ namespace UI.Desktop
             // 
             // btnMenuEspecialidad
             // 
-            this.btnMenuEspecialidad.Location = new System.Drawing.Point(53, 92);
+            this.btnMenuEspecialidad.Location = new System.Drawing.Point(53, 186);
             this.btnMenuEspecialidad.Name = "btnMenuEspecialidad";
-            this.btnMenuEspecialidad.Size = new System.Drawing.Size(75, 23);
+            this.btnMenuEspecialidad.Size = new System.Drawing.Size(125, 25);
             this.btnMenuEspecialidad.TabIndex = 5;
             this.btnMenuEspecialidad.Text = "Especialidad";
             this.btnMenuEspecialidad.UseVisualStyleBackColor = true;
@@ -101,18 +104,19 @@ namespace UI.Desktop
             // 
             // btnPlanes
             // 
-            this.btnPlanes.Location = new System.Drawing.Point(156, 92);
+            this.btnPlanes.Location = new System.Drawing.Point(53, 217);
             this.btnPlanes.Name = "btnPlanes";
-            this.btnPlanes.Size = new System.Drawing.Size(75, 23);
+            this.btnPlanes.Size = new System.Drawing.Size(125, 25);
             this.btnPlanes.TabIndex = 6;
             this.btnPlanes.Text = "Planes";
             this.btnPlanes.UseVisualStyleBackColor = true;
             this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
+            // 
             // btnPersonas
             // 
-            this.btnPersonas.Location = new System.Drawing.Point(154, 92);
+            this.btnPersonas.Location = new System.Drawing.Point(53, 60);
             this.btnPersonas.Name = "btnPersonas";
-            this.btnPersonas.Size = new System.Drawing.Size(75, 23);
+            this.btnPersonas.Size = new System.Drawing.Size(125, 25);
             this.btnPersonas.TabIndex = 6;
             this.btnPersonas.Text = "Personas";
             this.btnPersonas.UseVisualStyleBackColor = true;
@@ -120,9 +124,9 @@ namespace UI.Desktop
             // 
             // btnInscribir
             // 
-            this.btnInscribir.Location = new System.Drawing.Point(253, 92);
+            this.btnInscribir.Location = new System.Drawing.Point(53, 155);
             this.btnInscribir.Name = "btnInscribir";
-            this.btnInscribir.Size = new System.Drawing.Size(75, 23);
+            this.btnInscribir.Size = new System.Drawing.Size(125, 25);
             this.btnInscribir.TabIndex = 7;
             this.btnInscribir.Text = "Inscribir alumno";
             this.btnInscribir.UseVisualStyleBackColor = true;
@@ -132,7 +136,7 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 140);
+            this.ClientSize = new System.Drawing.Size(241, 313);
             this.Controls.Add(this.btnPlanes);
             this.Controls.Add(this.btnInscribir);
             this.Controls.Add(this.btnPersonas);
@@ -141,7 +145,7 @@ namespace UI.Desktop
             this.Controls.Add(this.btnMenuMaterias);
             this.Controls.Add(this.btnMenuCursos);
             this.Controls.Add(this.btnMenuUsuarios);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lMenu);
             this.Name = "Menu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -152,7 +156,7 @@ namespace UI.Desktop
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lMenu;
         private System.Windows.Forms.Button btnMenuUsuarios;
         private System.Windows.Forms.Button btnMenuCursos;
         private System.Windows.Forms.Button btnMenuMaterias;
