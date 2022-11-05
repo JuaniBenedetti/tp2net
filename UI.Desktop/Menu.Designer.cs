@@ -36,6 +36,8 @@ namespace UI.Desktop
             this.btnMenuComisiones = new System.Windows.Forms.Button();
             this.btnMenuEspecialidad = new System.Windows.Forms.Button();
             this.btnPlanes = new System.Windows.Forms.Button();
+            this.btnPersonas = new System.Windows.Forms.Button();
+            this.btnInscribir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -106,6 +108,25 @@ namespace UI.Desktop
             this.btnPlanes.Text = "Planes";
             this.btnPlanes.UseVisualStyleBackColor = true;
             this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
+            // btnPersonas
+            // 
+            this.btnPersonas.Location = new System.Drawing.Point(154, 92);
+            this.btnPersonas.Name = "btnPersonas";
+            this.btnPersonas.Size = new System.Drawing.Size(75, 23);
+            this.btnPersonas.TabIndex = 6;
+            this.btnPersonas.Text = "Personas";
+            this.btnPersonas.UseVisualStyleBackColor = true;
+            this.btnPersonas.Click += new System.EventHandler(this.btnPersonas_Click);
+            // 
+            // btnInscribir
+            // 
+            this.btnInscribir.Location = new System.Drawing.Point(253, 92);
+            this.btnInscribir.Name = "btnInscribir";
+            this.btnInscribir.Size = new System.Drawing.Size(75, 23);
+            this.btnInscribir.TabIndex = 7;
+            this.btnInscribir.Text = "Inscribir alumno";
+            this.btnInscribir.UseVisualStyleBackColor = true;
+            this.btnInscribir.Click += new System.EventHandler(this.btnInscribir_Click);
             // 
             // Menu
             // 
@@ -113,6 +134,8 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 140);
             this.Controls.Add(this.btnPlanes);
+            this.Controls.Add(this.btnInscribir);
+            this.Controls.Add(this.btnPersonas);
             this.Controls.Add(this.btnMenuEspecialidad);
             this.Controls.Add(this.btnMenuComisiones);
             this.Controls.Add(this.btnMenuMaterias);
@@ -136,5 +159,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnMenuComisiones;
         private System.Windows.Forms.Button btnMenuEspecialidad;
         private System.Windows.Forms.Button btnPlanes;
+        private System.Windows.Forms.Button btnPersonas;
+        private System.Windows.Forms.Button btnInscribir;
     }
 }

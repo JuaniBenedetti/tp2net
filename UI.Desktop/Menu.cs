@@ -57,5 +57,17 @@ namespace UI.Desktop
            Planes ud = new Planes();
             ud.ShowDialog();
         }
+
+        private void btnPersonas_Click(object sender, EventArgs e)
+        {
+            Personas pd = new Personas();
+            pd.ShowDialog();
+        }
+
+        private void btnInscribir_Click(object sender, EventArgs e)
+        {
+            AlumnosInscripciones aid = new AlumnosInscripciones();
+            aid.ShowDialog();
+        }
     }
 }
