@@ -48,6 +48,7 @@
     <Compile Include="EspecialidadAdapter.cs" />
     <Compile Include="AlumnoInscripcionAdapter.cs" />
     <Compile Include="MateriaAdapter.cs" />
+    <Compile Include="PlanAdapter.cs" />
     <Compile Include="PersonaAdapter.cs" />
     <Compile Include="UsuarioAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
