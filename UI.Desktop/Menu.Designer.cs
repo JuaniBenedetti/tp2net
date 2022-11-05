@@ -36,6 +36,7 @@ namespace UI.Desktop
             this.btnMenuComisiones = new System.Windows.Forms.Button();
             this.btnMenuEspecialidad = new System.Windows.Forms.Button();
             this.btnPersonas = new System.Windows.Forms.Button();
+            this.btnInscribir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -107,11 +108,22 @@ namespace UI.Desktop
             this.btnPersonas.UseVisualStyleBackColor = true;
             this.btnPersonas.Click += new System.EventHandler(this.btnPersonas_Click);
             // 
+            // btnInscribir
+            // 
+            this.btnInscribir.Location = new System.Drawing.Point(253, 92);
+            this.btnInscribir.Name = "btnInscribir";
+            this.btnInscribir.Size = new System.Drawing.Size(75, 23);
+            this.btnInscribir.TabIndex = 7;
+            this.btnInscribir.Text = "Inscribir alumno";
+            this.btnInscribir.UseVisualStyleBackColor = true;
+            this.btnInscribir.Click += new System.EventHandler(this.btnInscribir_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 140);
+            this.Controls.Add(this.btnInscribir);
             this.Controls.Add(this.btnPersonas);
             this.Controls.Add(this.btnMenuEspecialidad);
             this.Controls.Add(this.btnMenuComisiones);
@@ -136,5 +148,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnMenuComisiones;
         private System.Windows.Forms.Button btnMenuEspecialidad;
         private System.Windows.Forms.Button btnPersonas;
+        private System.Windows.Forms.Button btnInscribir;
     }
 }

@@ -57,5 +57,11 @@ namespace UI.Desktop
             Personas pd = new Personas();
             pd.ShowDialog();
         }
+
+        private void btnInscribir_Click(object sender, EventArgs e)
+        {
+            AlumnosInscripciones aid = new AlumnosInscripciones();
+            aid.ShowDialog();
+        }
     }
 }
