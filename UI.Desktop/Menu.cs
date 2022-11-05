@@ -48,7 +48,13 @@ namespace UI.Desktop
 
         private void btnMenuEspecialidad_Click(object sender, EventArgs e)
         {
-            Especialidades ud = new Especialidades();
+            EspecialidadesList ud = new EspecialidadesList();
+            ud.ShowDialog();
+        }
+
+        private void btnPlanes_Click(object sender, EventArgs e)
+        {
+           Planes ud = new Planes();
             ud.ShowDialog();
         }
     }

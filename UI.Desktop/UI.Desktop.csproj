@@ -77,11 +77,17 @@
     <Compile Include="CursoDesktop.Designer.cs">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Especialidades.cs">
+    <Compile Include="EspecialidadDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Especialidades.Designer.cs">
-      <DependentUpon>Especialidades.cs</DependentUpon>
+    <Compile Include="EspecialidadDesktop.Designer.cs">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EspecialidadesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EspecialidadesList.Designer.cs">
+      <DependentUpon>EspecialidadesList.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -100,6 +106,18 @@
     </Compile>
     <Compile Include="Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Planes.Designer.cs">
+      <DependentUpon>Planes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanesDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanesDesktop.Designer.cs">
+      <DependentUpon>PlanesDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
@@ -127,8 +145,11 @@
     <EmbeddedResource Include="Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Especialidades.resx">
-      <DependentUpon>Especialidades.cs</DependentUpon>
+    <EmbeddedResource Include="EspecialidadDesktop.resx">
+      <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EspecialidadesList.resx">
+      <DependentUpon>EspecialidadesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -138,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planes.resx">
+      <DependentUpon>Planes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanesDesktop.resx">
+      <DependentUpon>PlanesDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
@@ -176,6 +203,10 @@
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
       <Project>{ff327fca-1320-4171-9f64-8e1f8153a495}</Project>
       <Name>Business.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
+      <Project>{18D1C50F-58E0-4D94-B05B-4A95A146E6BB}</Project>
+      <Name>Data.Database</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

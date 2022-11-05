@@ -35,6 +35,7 @@ namespace UI.Desktop
             this.btnMenuMaterias = new System.Windows.Forms.Button();
             this.btnMenuComisiones = new System.Windows.Forms.Button();
             this.btnMenuEspecialidad = new System.Windows.Forms.Button();
+            this.btnPlanes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -96,11 +97,22 @@ namespace UI.Desktop
             this.btnMenuEspecialidad.UseVisualStyleBackColor = true;
             this.btnMenuEspecialidad.Click += new System.EventHandler(this.btnMenuEspecialidad_Click);
             // 
+            // btnPlanes
+            // 
+            this.btnPlanes.Location = new System.Drawing.Point(156, 92);
+            this.btnPlanes.Name = "btnPlanes";
+            this.btnPlanes.Size = new System.Drawing.Size(75, 23);
+            this.btnPlanes.TabIndex = 6;
+            this.btnPlanes.Text = "Planes";
+            this.btnPlanes.UseVisualStyleBackColor = true;
+            this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 140);
+            this.Controls.Add(this.btnPlanes);
             this.Controls.Add(this.btnMenuEspecialidad);
             this.Controls.Add(this.btnMenuComisiones);
             this.Controls.Add(this.btnMenuMaterias);
@@ -123,5 +135,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnMenuMaterias;
         private System.Windows.Forms.Button btnMenuComisiones;
         private System.Windows.Forms.Button btnMenuEspecialidad;
+        private System.Windows.Forms.Button btnPlanes;
     }
 }
