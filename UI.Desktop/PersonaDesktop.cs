@@ -27,10 +27,17 @@ namespace UI.Desktop
 
         public PersonaDesktop(int ID, ModoForm modo) : this()
         {
-            Modo = modo;
-            PersonaLogic pl = new PersonaLogic();
-            PersonaActual = pl.GetOne(ID);
-            MapearDeDatos();
+            try
+            {
+                Modo = modo;
+                PersonaLogic pl = new PersonaLogic();
+                PersonaActual = pl.GetOne(ID);
+                MapearDeDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
   
         public override void MapearDeDatos()
@@ -92,9 +99,16 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            MapearADatos();
-            PersonaLogic pl = new PersonaLogic();
-            pl.Save(this.PersonaActual);
+            try
+            {
+                MapearADatos();
+                PersonaLogic pl = new PersonaLogic();
+                pl.Save(this.PersonaActual);
+            } 
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public override bool Validar()
