@@ -30,62 +30,29 @@ namespace UI.Desktop
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Planes));
-            this.dataGridViewPlanes = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desc_Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEliminar = new System.Windows.Forms.ToolStripButton();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).BeginInit();
+            this.dataGridViewPlanes = new System.Windows.Forms.DataGridView();
+            this.Id_Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc_Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1.SuspendLayout();
+            this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridViewPlanes
-            // 
-            this.dataGridViewPlanes.AllowUserToAddRows = false;
-            this.dataGridViewPlanes.AllowUserToDeleteRows = false;
-            this.dataGridViewPlanes.AllowUserToResizeColumns = false;
-            this.dataGridViewPlanes.AllowUserToResizeRows = false;
-            this.dataGridViewPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Desc_Plan,
-            this.Id_Especialidad});
-            this.dataGridViewPlanes.Location = new System.Drawing.Point(0, 28);
-            this.dataGridViewPlanes.Name = "dataGridViewPlanes";
-            this.dataGridViewPlanes.Size = new System.Drawing.Size(800, 384);
-            this.dataGridViewPlanes.TabIndex = 0;
-            this.dataGridViewPlanes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPlanes_CellContentClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "Id_Plan";
-            this.ID.Name = "ID";
-            // 
-            // Desc_Plan
-            // 
-            this.Desc_Plan.DataPropertyName = "DescPlan";
-            this.Desc_Plan.HeaderText = "Descripcion";
-            this.Desc_Plan.Name = "Desc_Plan";
-            // 
-            // Id_Especialidad
-            // 
-            this.Id_Especialidad.DataPropertyName = "IdEspecialidad";
-            this.Id_Especialidad.HeaderText = "ID de Especialidad";
-            this.Id_Especialidad.Name = "Id_Especialidad";
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(605, 418);
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -95,7 +62,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(700, 418);
+            this.btnSalir.Location = new System.Drawing.Point(722, 399);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -145,24 +112,12 @@ namespace UI.Desktop
             this.toolStripButtonEliminar.Text = "toolStripButton3";
             this.toolStripButtonEliminar.Click += new System.EventHandler(this.toolStripButtonEliminar_Click_1);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.46563F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.534369F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 423);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
             // toolStripContainer1
             // 
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
@@ -171,43 +126,97 @@ namespace UI.Desktop
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
+            // dataGridViewPlanes
+            // 
+            this.dataGridViewPlanes.AllowUserToAddRows = false;
+            this.dataGridViewPlanes.AllowUserToDeleteRows = false;
+            this.dataGridViewPlanes.AllowUserToResizeColumns = false;
+            this.dataGridViewPlanes.AllowUserToResizeRows = false;
+            this.dataGridViewPlanes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Desc_Plan,
+            this.Id_Especialidad});
+            this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewPlanes, 2);
+            this.dataGridViewPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPlanes.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewPlanes.MultiSelect = false;
+            this.dataGridViewPlanes.Name = "dataGridViewPlanes";
+            this.dataGridViewPlanes.RowHeadersVisible = false;
+            this.dataGridViewPlanes.Size = new System.Drawing.Size(794, 390);
+            this.dataGridViewPlanes.TabIndex = 0;
+            this.dataGridViewPlanes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPlanes_CellContentClick);
+            // 
+            // Id_Especialidad
+            // 
+            this.Id_Especialidad.DataPropertyName = "IdEspecialidad";
+            this.Id_Especialidad.HeaderText = "ID de Especialidad";
+            this.Id_Especialidad.Name = "Id_Especialidad";
+            // 
+            // Desc_Plan
+            // 
+            this.Desc_Plan.DataPropertyName = "DescPlan";
+            this.Desc_Plan.HeaderText = "Descripcion";
+            this.Desc_Plan.Name = "Desc_Plan";
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "Id_Plan";
+            this.ID.Name = "ID";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewPlanes, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnActualizar, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 425);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
             // Planes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.dataGridViewPlanes);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "Planes";
             this.Text = "Planes";
             this.Load += new System.EventHandler(this.Planes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlanes)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewPlanes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Desc_Plan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Especialidad;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonNuevo;
         private System.Windows.Forms.ToolStripButton toolStripButtonEditar;
         private System.Windows.Forms.ToolStripButton toolStripButtonEliminar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridViewPlanes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desc_Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Especialidad;
     }
 }

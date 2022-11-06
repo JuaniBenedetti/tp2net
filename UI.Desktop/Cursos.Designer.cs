@@ -99,7 +99,10 @@ namespace UI.Desktop
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(3, 3);
             this.dgvCursos.Name = "dgvCursos";
+            this.dgvCursos.ReadOnly = true;
+            this.dgvCursos.RowHeadersVisible = false;
             this.dgvCursos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursos.Size = new System.Drawing.Size(794, 389);
             this.dgvCursos.TabIndex = 0;
             this.dgvCursos.Click += new System.EventHandler(this.dgvCursos_Click);
@@ -109,12 +112,14 @@ namespace UI.Desktop
             this.Año_calendario.DataPropertyName = "Año_calendario";
             this.Año_calendario.HeaderText = "Año de Calendario";
             this.Año_calendario.Name = "Año_calendario";
+            this.Año_calendario.ReadOnly = true;
             // 
             // Cupo
             // 
             this.Cupo.DataPropertyName = "Cupo";
             this.Cupo.HeaderText = "Cupo";
             this.Cupo.Name = "Cupo";
+            this.Cupo.ReadOnly = true;
             // 
             // btnActualizar
             // 
