@@ -37,11 +37,14 @@ namespace UI.Desktop
             this.ID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(517, 319);
+            this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAceptar.Location = new System.Drawing.Point(6, 98);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 0;
@@ -51,7 +54,8 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(642, 319);
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancelar.Location = new System.Drawing.Point(117, 98);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -61,21 +65,21 @@ namespace UI.Desktop
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(101, 79);
+            this.textBoxID.Location = new System.Drawing.Point(90, 3);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(100, 20);
             this.textBoxID.TabIndex = 2;
             // 
             // textBoxDesc
             // 
-            this.textBoxDesc.Location = new System.Drawing.Point(265, 78);
+            this.textBoxDesc.Location = new System.Drawing.Point(90, 29);
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(100, 20);
             this.textBoxDesc.TabIndex = 3;
             // 
             // textBoxIDEsp
             // 
-            this.textBoxIDEsp.Location = new System.Drawing.Point(432, 79);
+            this.textBoxIDEsp.Location = new System.Drawing.Point(90, 55);
             this.textBoxIDEsp.Name = "textBoxIDEsp";
             this.textBoxIDEsp.Size = new System.Drawing.Size(100, 20);
             this.textBoxIDEsp.TabIndex = 4;
@@ -83,7 +87,7 @@ namespace UI.Desktop
             // ID
             // 
             this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(101, 60);
+            this.ID.Location = new System.Drawing.Point(3, 0);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(18, 13);
             this.ID.TabIndex = 5;
@@ -92,7 +96,7 @@ namespace UI.Desktop
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 60);
+            this.label2.Location = new System.Drawing.Point(3, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 6;
@@ -101,29 +105,48 @@ namespace UI.Desktop
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(429, 60);
+            this.label3.Location = new System.Drawing.Point(3, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "ID Especialidad";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.ID, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxIDEsp, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxDesc, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 4);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(222, 124);
+            this.tableLayoutPanel1.TabIndex = 8;
+            // 
             // PlanesDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.ID);
-            this.Controls.Add(this.textBoxIDEsp);
-            this.Controls.Add(this.textBoxDesc);
-            this.Controls.Add(this.textBoxID);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
+            this.ClientSize = new System.Drawing.Size(222, 124);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PlanesDesktop";
             this.Text = "PlanesDesktop";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -137,5 +160,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
